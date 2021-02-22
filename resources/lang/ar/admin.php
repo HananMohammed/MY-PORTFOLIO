@@ -1,6 +1,6 @@
 <?php
 return [
-    'el-ostora' => 'الأسطوره',
+    'we-coders' => 'WE-CODERS',
     'homepage' =>'الصفحه الرئيسيه',
     'adminPanel' =>'لوحه التحكم',
     'about' => 'عن الشركه',

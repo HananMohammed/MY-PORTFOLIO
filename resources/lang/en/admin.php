@@ -1,6 +1,6 @@
 <?php
 return [
-    'el-ostora' => 'El-OStora',
+    'we-coders' => 'WE-CODERS',
     'homepage' =>'Homepage',
     'adminPanel' =>'Admin Panel',
     'about' => 'About us',

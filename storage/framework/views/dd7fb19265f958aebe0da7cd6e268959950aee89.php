@@ -3,7 +3,7 @@
     <div class="brand flex-column-auto" id="kt_brand">
         <!--begin::Logo-->
         <a href = "" class="brand-logo text-capitalize" >
-            @lang('admin.we-coders')
+            <?php echo app('translator')->get('admin.we-coders'); ?>
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->
@@ -30,7 +30,7 @@
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="{{route('admin.adminPanel')}}" class="menu-link">
+                    <a href="<?php echo e(route('admin.adminPanel')); ?>" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -42,7 +42,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.adminPanel')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.adminPanel'); ?></span>
                     </a>
                 </li>
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -58,7 +58,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.homepage')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.homepage'); ?></span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
@@ -66,7 +66,7 @@
                         <ul class="menu-subnav">
                             <li class="menu-item menu-item-parent" aria-haspopup="true">
                             <span class="menu-link">
-                                <span class="menu-text">@lang('admin.homepage')</span>
+                                <span class="menu-text"><?php echo app('translator')->get('admin.homepage'); ?></span>
                             </span>
                             </li>
                             <!--Start Slider-->
@@ -75,26 +75,26 @@
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">@lang('slider.sliders')</span>
+                                    <span class="menu-text"><?php echo app('translator')->get('slider.sliders'); ?></span>
                                     <i class="menu-arrow"></i>
                                 </a>
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
                                         <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{route('admin.sliders.index')}}" class="menu-link">
+                                            <a href="<?php echo e(route('admin.sliders.index')); ?>" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">@lang('slider.list-sliders')</span>
+                                                <span class="menu-text"><?php echo app('translator')->get('slider.list-sliders'); ?></span>
                                             </a>
                                         </li>
                                         <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{route('admin.sliders.create')}}" class="menu-link">
+                                            <a href="<?php echo e(route('admin.sliders.create')); ?>" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">@lang('slider.create-slider')</span>
+                                                <span class="menu-text"><?php echo app('translator')->get('slider.create-slider'); ?></span>
                                             </a>
                                         </li>
                                     </ul>
@@ -103,21 +103,21 @@
                             <!--End Slider-->
                             <!--About Us-->
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="{{route('admin.about.edit')}}" class="menu-link">
+                                <a href="<?php echo e(route('admin.about.edit')); ?>" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">@lang('admin.about')</span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.about'); ?></span>
                                 </a>
                             </li>
                             <!--End About Us-->
                             <!--Start Blogs-->
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{route('admin.blogs.index')}}" class="menu-link menu-toggle">
+                                <a href="<?php echo e(route('admin.blogs.index')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">@lang('admin.blogs')</span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.blogs'); ?></span>
                                 </a>
                             </li>
                             <!--End Blogs-->
@@ -140,7 +140,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.products')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.products'); ?></span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
@@ -148,7 +148,7 @@
                         <ul class="menu-subnav">
                             <li class="menu-item menu-item-parent" aria-haspopup="true">
                                 <span class="menu-link">
-                                    <span class="menu-text">@lang('admin.products')</span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.products'); ?></span>
                                 </span>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
@@ -156,7 +156,7 @@
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">@lang('admin.list-products')</span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.list-products'); ?></span>
                                 </a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
@@ -164,7 +164,7 @@
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">@lang('admin.create-product')</span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.create-product'); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -184,7 +184,7 @@
                                 </g>
                             </svg>                            <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.activities')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.activities'); ?></span>
                     </a>
 
                 </li>
@@ -202,7 +202,7 @@
                             </g>
                           </svg>                          <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.contacts')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.contacts'); ?></span>
                     </a>
                     <!--End Contacts-->
                     <!--NewsLetter-->
@@ -218,7 +218,7 @@
                             </g>
                         </svg>                         <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.newsLetter')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.newsLetter'); ?></span>
                     </a>
                     <!--End Contacts-->
 
@@ -236,7 +236,7 @@
                             </g>
                         </svg>                         <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.customer-orders')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.customer-orders'); ?></span>
                     </a>
                     <!--End cusomer orders-->
 
@@ -258,11 +258,11 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">@lang('admin.logout')</span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.logout'); ?></span>
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                           style="display: none;">
-                        @csrf
+                        <?php echo csrf_field(); ?>
                     </form>
 
                 </li>
@@ -273,3 +273,4 @@
     </div>
     <!--end::Aside Menu-->
 </div>
+<?php /**PATH C:\xampp\htdocs\we-coders\resources\views/admin/layouts/sidebar.blade.php ENDPATH**/ ?>
