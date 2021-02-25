@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title' ,'Create Department')
+@section('title' ,'About')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
@@ -10,7 +10,7 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.new-section')</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.about-edit')</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -18,7 +18,7 @@
                                 <a href="{{route('admin.adminPanel')}}" class="text-muted">@lang('admin.adminPanel')</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="javascrpit:;" class="text-muted">@lang('admin.new-section')</a>
+                                <a href="javascrpit:;" class="text-muted">@lang('admin.about-edit')</a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -55,13 +55,14 @@
                         <!--begin::Card-->
                         <div class="card card-custom gutter-b example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">@lang('admin.create-department')</h3>
+                                <h3 class="card-title">@lang('admin.about-edit')</h3>
                             </div>
                             <!--begin::Form-->
-                            <form action="{{route('admin.departments.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.about.update') }}" method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     @csrf
-                                    @include('admin.homepage.department.form')
+                                    @method('PUT')
+                                    @include('admin.about.form')
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2">@lang('admin.submit')</button>
@@ -69,6 +70,30 @@
                                 </div>
                             </form>
                             <!--end::Form-->
+                            <!-- Start Sub About Form-->
+                            <div class="modal fade" id="exampleModalCustomScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">@lang('admin.sub-about')</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <i aria-hidden="true" class="ki ki-close"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div data-scroll="true" data-height="300">
+                                                <div class="row">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary font-weight-bold">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Sub About Form-->
                         </div>
                         <!--end::Card-->
                     </div>

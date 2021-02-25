@@ -3,20 +3,20 @@
         <div class="col-lg-6 col-sm-12">
             <div class="form-group">
                 <label for="title_en">@lang('admin.title-en')<label class="text-danger">*</label></label>
-                <input type="text"  name="title[]"  value="{{old('title.0')??$womenOffer->getTranslation('title','en')}}" class="form-control " id="title_en"  placeholder="@lang('admin.enter-en-title')" >
+                <input type="text"  name="title[]"  value="{{old('title.0')??$about->getTranslation('title','en')}}" class="form-control " id="title_en"  placeholder="@lang('admin.enter-en-title')" >
             </div>
         </div>
         <div class="col-lg-6 col-sm-12">
             <div class="form-group">
                 <label for="title_ar">@lang('admin.title-ar')<label class="text-danger">*</label></label>
-                <input type="text"  name="title[]"  value="{{old('title.1')??$womenOffer->getTranslation('title','ar')}}" class="form-control " id="title_ar"  placeholder="@lang('admin.enter-ar-title')" >
+                <input type="text"  name="title[]"  value="{{old('title.1')??$about->getTranslation('title','ar')}}" class="form-control " id="title_ar"  placeholder="@lang('admin.enter-ar-title')" >
             </div>
         </div>
         <div class="col-lg-6 col-sm-12">
             <div class="form-group">
                 <label for="text_en">@lang('admin.text-en')<label class="text-danger">*</label></label>
                 <textarea type="text" name="text[]" class="form-control summernote" id="text_en" placeholder="@lang('dashboard.enter-english-text')" >
-                    {{old('text.0')??$womenOffer->getTranslation('text','en')}}
+                    {{old('text.0')??$about->getTranslation('text','en')}}
                 </textarea>
             </div>
         </div>
@@ -24,19 +24,19 @@
             <div class="form-group">
                 <label for="text_ar">@lang('admin.text-ar')<label class="text-danger">*</label></label>
                 <textarea type="text" name="text[]" class="form-control summernote" id="text_ar" placeholder="@lang('dashboard.enter-arabic-text')" >
-                    {{old('text.1')??$womenOffer->getTranslation('text','ar')}}
+                    {{old('text.1')??$about->getTranslation('text','ar')}}
                 </textarea>
             </div>
         </div>
-        <div class="col-lg-12 col-sm-12" id="url">
-            <div class="form-group">
-                <label for="url">@lang('admin.video-url')<label class="text-danger">*</label></label>
-                <input type="url"  name="url"  value="{{old('url')??$womenOffer->url}}" class="form-control " id="url"  placeholder="@lang('admin.enter-video-url')" >
-            </div>
+
+        <div class="col-lg-12 text-center mb-5">
+            <label for="subAbout" class="text-danger">*</label>
+            <a href="javascript:void(0)" class="btn btn-light-success font-weight-bold mr-2" id="subAbout" data-toggle="modal" data-target="#exampleModalCustomScrollable">@lang('admin.sub-about')</a>
+            <label for="subAbout" class="text-danger">*</label>
         </div>
-        <div class="col-lg-12 col-xl-12">
+        <div class="col-lg-12 col-xl-12" style="text-align: center;">
             <div class="image-input image-input-outline" id="kt_contacts_edit_avatar1" style="background-image:url({{asset_public('admin/media/gym_images/il_570xN.1580358345_5585.jpg')}}) ;width:300px;height: 220px;">
-                <div class="image-input-wrapper"  style="background-image:@if(!empty($womenOffer->toArray())) url({{asset_public('storage/uploads/'.$womenOffer->image)}}) @else url({{asset_public('admin/assets/media/photography.svg')}}) @endif; width:300px;height: 220px;"></div>
+                <div class="image-input-wrapper"  style="background-image:@if(!empty($about->toArray())) url({{asset_public('storage/uploads/'.$about->image)}}) @else url({{asset_public('admin/assets/media/photography.svg')}}) @endif; width:300px;height: 220px;"></div>
                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                     <i class="fa fa-pen icon-sm text-muted"></i>
                     <input type="file" name="image">

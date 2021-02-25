@@ -22,7 +22,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::all();
 
-        return view('admin.homepage.blog.index', compact('blogs'));
+        return view('admin.blog.index', compact('blogs'));
     }
 
     /**

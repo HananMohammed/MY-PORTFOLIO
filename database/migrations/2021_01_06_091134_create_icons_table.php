@@ -17,6 +17,7 @@ class CreateIconsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('icon');
+            $table->string('related_to')->index();
             $table->timestamps();
         });
     }

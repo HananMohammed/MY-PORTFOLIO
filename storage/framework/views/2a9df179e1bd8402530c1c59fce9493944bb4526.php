@@ -1,8 +1,6 @@
-@extends('admin.layouts.app')
+<?php $__env->startSection('title', 'Sliders'); ?>
 
-@section('title', 'Courses')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -11,15 +9,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.courses')</h5>
+                    <h5 class="text-dark font-weight-bold my-1 mr-5"><?php echo app('translator')->get('slider.sliders'); ?></h5>
                     <!--end::Page Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="{{route('admin.adminPanel')}}" class="text-muted">@lang('admin.adminPanel')</a>
+                            <a href="<?php echo e(route('admin.adminPanel')); ?>" class="text-muted"><?php echo app('translator')->get('admin.adminPanel'); ?></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{route('admin.courses.index')}}" class="text-muted">@lang('admin.courses')</a>
+                            <a href="<?php echo e(route('admin.sliders.index')); ?>" class="text-muted"><?php echo app('translator')->get('slider.sliders'); ?></a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -38,11 +36,11 @@
             <div class="card card-custom gutter-b" style="width: 100%;">
                 <div class="card-header flex-wrap py-3">
                     <div class="card-title">
-                        <h3 class="card-label">@lang('admin.courses')</h3>
+                        <h3 class="card-label"><?php echo app('translator')->get('slider.sliders'); ?></h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
-                        <a href="{{ route('admin.courses.create') }}" class="btn btn-primary font-weight-bolder d-flex">
+                        <a href="<?php echo e(route('admin.sliders.create')); ?>" class="btn btn-primary font-weight-bolder d-flex">
                     <span class="svg-icon svg-icon-md">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -53,7 +51,7 @@
                             </g>
                         </svg>
                         <!--end::Svg Icon-->
-                    </span>@lang('admin.new-section')</a>
+                    </span><?php echo app('translator')->get('admin.new-section'); ?></a>
                         <!--end::Button-->
                     </div>
                 </div>
@@ -65,48 +63,28 @@
                                 <table class="table table-bordered table-checkable " id="kt_datatable">
                                     <thead>
                                     <tr role="row">
-                                        <th>@lang('dashboard.id')</th>
-                                        <th>@lang('admin.title')</th>
-                                        <th>@lang('admin.image')</th>
-                                        <th>@lang('admin.time')</th>
-                                        <th>@lang('admin.teaching-staff')</th>
-                                        <th>@lang('admin.description')</th>
-                                        <th>@lang('admin.created_by')</th>
-                                        <th>@lang('admin.actions')</th>
+                                        <th><?php echo app('translator')->get('dashboard.id'); ?></th>
+                                        <th><?php echo app('translator')->get('slider.slide-image'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.title'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.description'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.created_by'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.actions'); ?></th>
                                     </tr>
                                     </thead>
-                                    @if(count($courses)>0)
+                                    <?php if(count($sliders)>0): ?>
                                         <tbody>
-                                        @foreach($courses as $course)
+                                        <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td>{{ $course->id }}</td>
-                                                <td>{{ $course->title }}</td>
-                                                <td><img src="{{ asset_public('storage/uploads/'.$course->image) }}" style="width: 100px;height: 60px;"></td>
-                                                <td>{{ $course->time }}</td>
-                                            @if(app()->getLocale() == 'en')
-                                                    <td>
-                                                        <ul>
-                                                        @foreach(json_decode($course->teaching_staff_en) as $teaching_staff_en)
-                                                            <li>{{$teaching_staff_en}}</li>
-                                                        @endforeach
-                                                        </ul>
-                                                    </td>
-                                                @else
-                                                    <td>
-                                                        <ul>
-                                                            @foreach(json_decode($course->teaching_staff_ar) as $teaching_staff_ar)
-                                                                <li>{{$teaching_staff_ar}}</li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </td>
-                                                @endif
-                                                <td>{!! $course->text !!}</td>
-                                                <td>{{ $course->user()->pluck('name')[0] }}</td>
-                                                <td nowrap="nowrap">{{ $course->id }}</td>
+                                                <td><?php echo e($slider->id); ?></td>
+                                                <td><img src="<?php echo e(asset_public('storage/uploads/'.$slider->image)); ?>" style="width: 100px;height: 60px;"></td>
+                                                <td><?php echo e($slider->title); ?></td>
+                                                <td><?php echo $slider->text; ?></td>
+                                                <td><?php echo e($slider->user()->pluck('name')[0]); ?></td>
+                                                <td nowrap="nowrap"><?php echo e($slider->id); ?></td>
                                             </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
-                                    @endif
+                                    <?php endif; ?>
                                 </table>
                             </div>
                         </div>
@@ -119,9 +97,9 @@
         <!--end::Container-->
     </div>
     <!--end::Entry-->
-@endsection
-@section('scripts')
-    <script src="{{ asset_public('admin/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(asset_public('admin/assets/plugins/custom/datatables/datatables.bundle.js')); ?>"></script>
     <script type="text/javascript">
         $( document ).ready(function() {
 
@@ -188,7 +166,7 @@
                 </span>
             </a>
 
-            <a href="${currentLocation}/courses/${data}"class="btn btn-sm btn-clean btn-icon" title="Delete" onclick="event.preventDefault();
+            <a href="${currentLocation}/sliders/${data}"class="btn btn-sm btn-clean btn-icon" title="Delete" onclick="event.preventDefault();
                         document.getElementById('delete-operator-form-${data}').submit();">
                 <span class="svg-icon svg-icon-md">
                     <svg class="delete" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -200,15 +178,15 @@
                     </svg>
                 </span>
                 <form id="delete-operator-form-${data}" action="${currentLocation}/${data}" method="POST" style="display: none;">
-                    @csrf
-                            @method('DELETE')
+                    <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
                             </form>
                         </a>`;
                         },
                     },
                     {
                         targets: 2,
-                        title:'{{__('admin.teaching-staff')}}' ,
+                        title:'<?php echo e(__('admin.title')); ?>' ,
                         width: '75px',
                         render: function(data, type, full, meta) {
                             var status = {
@@ -226,7 +204,9 @@
 
         });
     </script>
-    @if(session()->has('success'))
-        <script>Swal.fire("Good Job", "{{session()->get('success')}}", "success");</script>
-    @endif
-@endsection
+    <?php if(session()->has('success')): ?>
+        <script>Swal.fire("Good Job", "<?php echo e(session()->get('success')); ?>", "success");</script>
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\we-coders\resources\views/admin/slider/index.blade.php ENDPATH**/ ?>

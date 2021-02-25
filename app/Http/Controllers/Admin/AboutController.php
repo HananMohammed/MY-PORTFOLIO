@@ -23,7 +23,7 @@ class AboutController extends Controller
         if ($about === null)
             $about = new About();
 
-        return view('admin.homepage.about.edit', compact('about'));
+        return view('admin.about.edit', compact('about'));
     }
 
     /**

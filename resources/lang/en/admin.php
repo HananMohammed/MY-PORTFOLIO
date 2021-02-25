@@ -108,8 +108,8 @@ return [
     "address" =>"Address",
     "phone" =>"Phone",
     "country" => "Country",
-    "state" =>"State"
-
+    "state" =>"State",
+    "sub-about" => "Add About us Sub Menu Section ..."
 
 
 

@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title' ,'Mens Offer')
+@section('title' ,'Create Slider')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
@@ -10,7 +10,7 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.mens-offer-edit')</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.new-section')</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -18,7 +18,7 @@
                                 <a href="{{route('admin.adminPanel')}}" class="text-muted">@lang('admin.adminPanel')</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="javascrpit:;" class="text-muted">@lang('admin.mens-offer-edit')</a>
+                                <a href="javascrpit:;" class="text-muted">@lang('admin.new-section')</a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -55,13 +55,13 @@
                         <!--begin::Card-->
                         <div class="card card-custom gutter-b example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">@lang('admin.mens-offer-edit')</h3>
+                                <h3 class="card-title">@lang('slider.create-slider')</h3>
                             </div>
                             <!--begin::Form-->
-                            <form method="POST" action="{{route('admin.mens.offer.update') }}"  enctype="multipart/form-data">
+                            <form action="{{route('admin.sliders.store') }}" method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     @csrf
-                                    @include('admin.homepage.mens_offer.form')
+                                    @include('admin.slider.form')
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2">@lang('admin.submit')</button>

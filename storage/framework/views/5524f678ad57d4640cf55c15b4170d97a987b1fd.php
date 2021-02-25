@@ -1,6 +1,5 @@
-@extends('admin.layouts.app')
-@section('title' ,'Edit Slider')
-@section('content')
+<?php $__env->startSection('title' ,'About'); ?>
+<?php $__env->startSection('content'); ?>
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -10,15 +9,15 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('slider.edit-slider')</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5"><?php echo app('translator')->get('admin.about-edit'); ?></h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item">
-                                <a href="{{route('admin.adminPanel')}}" class="text-muted">@lang('admin.adminPanel')</a>
+                                <a href="<?php echo e(route('admin.adminPanel')); ?>" class="text-muted"><?php echo app('translator')->get('admin.adminPanel'); ?></a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="javascrpit:;" class="text-muted">@lang('slider.edit-slider')</a>
+                                <a href="javascrpit:;" class="text-muted"><?php echo app('translator')->get('admin.about-edit'); ?></a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -33,14 +32,15 @@
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-                @if(!empty($errors->any()))
+                <?php if(!empty($errors->any())): ?>
                     <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
                         <div class="alert-icon"><i class="flaticon-warning"></i></div>
                         <div class="alert-text">
                             <ol>
-                                @if($errors->any())
-                                    {!! implode('',$errors->all('<li>:message</li>')) !!}
-                                @endif
+                                <?php if($errors->any()): ?>
+                                    <?php echo implode('',$errors->all('<li>:message</li>')); ?>
+
+                                <?php endif; ?>
                             </ol>
                         </div>
                         <div class="alert-close">
@@ -49,24 +49,24 @@
                             </button>
                         </div>
                     </div>
-                @endif
+                <?php endif; ?>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <!--begin::Card-->
                         <div class="card card-custom gutter-b example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">@lang('slider.edit-slider')</h3>
+                                <h3 class="card-title"><?php echo app('translator')->get('admin.about-edit'); ?></h3>
                             </div>
                             <!--begin::Form-->
-                            <form action="{{route('admin.sliders.update',$slider->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo e(route('admin.about.update')); ?>" method="post" enctype="multipart/form-data">
                                 <div class="card-body">
-                                    @csrf
-                                    @method('put')
-                                    @include('admin.homepage.slider.form')
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field('PUT'); ?>
+                                    <?php echo $__env->make('admin.about.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary mr-2">@lang('admin.submit')</button>
-                                    <a href="{{route('admin.adminPanel')}}" class="btn btn-secondary">@lang('admin.close')</a>
+                                    <button type="submit" class="btn btn-primary mr-2"><?php echo app('translator')->get('admin.submit'); ?></button>
+                                    <a href="<?php echo e(route('admin.adminPanel')); ?>" class="btn btn-secondary"><?php echo app('translator')->get('admin.close'); ?></a>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -79,4 +79,6 @@
         </div>
         <!--end::Entry-->
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\we-coders\resources\views/admin/about/edit.blade.php ENDPATH**/ ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2021 at 02:41 PM
+-- Generation Time: Feb 25, 2021 at 03:27 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -95,9 +95,18 @@ CREATE TABLE `icons` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `icon` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `related_to` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `icons`
+--
+
+INSERT INTO `icons` (`id`, `title`, `icon`, `related_to`, `created_at`, `updated_at`) VALUES
+(1, 'bx-receipt', '<i class=\"bx bx-receipt\"></i>', 'abouts', NULL, NULL),
+(2, 'bx-cube-alt', '<i class=\"bx bx-cube-alt\"></i>', 'abouts', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -122,11 +131,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (6, '2021_01_05_153436_create_sessions_table', 1),
-(7, '2021_01_06_091134_create_icons_table', 1),
 (8, '2021_01_18_085021_create_sliders_table', 1),
 (9, '2021_01_23_110619_create_abouts_table', 1),
 (10, '2021_01_26_120254_create_contacts_table', 1),
-(11, '2021_02_07_133510_create_blogs_table', 1);
+(11, '2021_02_07_133510_create_blogs_table', 1),
+(14, '2021_01_06_091134_create_icons_table', 2);
 
 -- --------------------------------------------------------
 
@@ -178,7 +187,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('NWv4UspmgOivhbcUVdLiem1WwszyPPx3dtvez9JY', NULL, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoid1FTTHEzWEZpYXdRczE1WXA2MXBUeHFIWGZ3OVc5MjR3ODFCWlF5YiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2xvZ2luIjt9czo2OiJsb2NhbGUiO3M6MjoiZW4iO30=', 1613999124);
+('FSBMEVlxjormICTqto65hekDwHMPnmo7k4Ei28ib', 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiQVhCcUhuckszRVRucjFsNjRVUU1JQm4yZXJQeDlMSmZmM3VCQTdBTiI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHpJQUYyck1pWHJNODZnai85VDRuSU81Qi9meTNhQTlTR1hPVWpaN1EybGJKSFJtZU9Kb0VhIjtzOjY6ImxvY2FsZSI7czoyOiJhciI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkeklBRjJyTWlYck04NmdqLzlUNG5JTzVCL2Z5M2FBOVNHWE9Valo3UTJsYkpIUm1lT0pvRWEiO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ3OiJodHRwOi8vbG9jYWxob3N0L3dlLWNvZGVycy9hci9hZG1pbi9hYm91dHMvZWRpdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1614258938),
+('KNS37mbdiex5smsTKFIoSd5s8aLIgZJW5dF3tByc', 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoibkJXTnJyVmZ3alFGTFdqR1RubExQb1BQVHo1bUF2c1BBYlpocEVUSyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2FyIjt9czo2OiJsb2NhbGUiO3M6MjoiYXIiO3M6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkeklBRjJyTWlYck04NmdqLzlUNG5JTzVCL2Z5M2FBOVNHWE9Valo3UTJsYkpIUm1lT0pvRWEiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHpJQUYyck1pWHJNODZnai85VDRuSU81Qi9meTNhQTlTR1hPVWpaN1EybGJKSFJtZU9Kb0VhIjt9', 1614248806),
+('rxgAOSkKUUh4qfdRTYjWlboQkEtTswPG8pUjTQf9', NULL, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiR09uU1ZqSzQxWFVtOHFVMEFYb0VVRlkwM2FoYUI0UU03YWR6QVNoTiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2VuIjt9czo2OiJsb2NhbGUiO3M6MjoiZW4iO3M6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6MzU6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2VuL2FkbWluIjt9fQ==', 1614005250);
 
 -- --------------------------------------------------------
 
@@ -195,6 +206,13 @@ CREATE TABLE `sliders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `title`, `text`, `image`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '{\"en\":\"we-coders\",\"ar\":\"we-coders\"}', '{\"en\":\"is a websites development agency, providing all websites development services to local and international companies, whether online or offline.\",\"ar\":\"\\u0647\\u064a \\u0648\\u0643\\u0627\\u0644\\u0629 \\u062a\\u0637\\u0648\\u064a\\u0631 \\u0645\\u0648\\u0627\\u0642\\u0639 \\u0627\\u0644\\u0648\\u064a\\u0628 \\u060c \\u062a\\u0642\\u062f\\u0645 \\u062c\\u0645\\u064a\\u0639 \\u062e\\u062f\\u0645\\u0627\\u062a \\u062a\\u0637\\u0648\\u064a\\u0631 \\u0645\\u0648\\u0627\\u0642\\u0639 \\u0627\\u0644\\u0648\\u064a\\u0628 \\u0644\\u0644\\u0634\\u0631\\u0643\\u0627\\u062a \\u0627\\u0644\\u0645\\u062d\\u0644\\u064a\\u0629 \\u0648\\u0627\\u0644\\u062f\\u0648\\u0644\\u064a\\u0629 \\u060c \\u0633\\u0648\\u0627\\u0621 \\u0639\\u0628\\u0631 \\u0627\\u0644\\u0625\\u0646\\u062a\\u0631\\u0646\\u062a \\u0623\\u0648 \\u062f\\u0648\\u0646 \\u0627\\u0644\\u0627\\u062a\\u0635\\u0627\\u0644 \\u0628\\u0627\\u0644\\u0625\\u0646\\u062a\\u0631\\u0646\\u062a.\"}', 'image1614244953.png', 1, '2021-02-25 07:22:33', '2021-02-25 07:22:33');
 
 -- --------------------------------------------------------
 
@@ -217,6 +235,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `is_admin`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
+(1, 'WE-CODERS', 'admin@gmail.com', NULL, NULL, '$2y$10$zIAF2rMiXrM86gj/9T4nIO5B/fy3aA9SGXOUjZ7Q2lbJHRmeOJoEa', NULL, NULL, 'lJh1XLP5EZfseMPBcJMsa8ZcOPRhs0PjtIepeGhXrsDlHPLmx9XtmuJSqEkQ', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -253,7 +278,8 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `icons`
 --
 ALTER TABLE `icons`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `icons_related_to_index` (`related_to`);
 
 --
 -- Indexes for table `migrations`
@@ -329,13 +355,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `icons`
 --
 ALTER TABLE `icons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -347,13 +373,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
