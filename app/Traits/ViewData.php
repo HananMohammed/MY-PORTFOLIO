@@ -16,7 +16,7 @@ class ViewData
      */
     public Static function HomepageData()
     {
-        $slider = Slider::select('title','text','image')->get();
+        $slider = Slider::select('title','text','image')->first();
         $about = About::first();
         $blogs = Blog::orderBy('id', 'desc')->take(4)->get();
         $data = [
