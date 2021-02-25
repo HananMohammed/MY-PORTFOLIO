@@ -11,7 +11,7 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
          <?php $__env->slot('logo'); ?> 
-             <img src="<?php echo e(asset_public('front/logo/logo.png')); ?>" class="logo-img"/>
+             <img src="<?php echo e(asset_public('front/assets/images/logo.png')); ?>" class="logo-img"/>
          <?php $__env->endSlot(); ?>
 
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
