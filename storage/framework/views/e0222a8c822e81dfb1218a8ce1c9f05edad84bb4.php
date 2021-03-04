@@ -71,13 +71,31 @@
                             </span>
                             </li>
 
-                            <!--Start Slider-->
+                            <!--Start General Setting-->
                             <li class="menu-item" aria-haspopup="true">
                                 <a href="<?php echo e(route('admin.settings.edit')); ?>" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
                                     <span class="menu-text"><?php echo app('translator')->get('admin.general-setting'); ?></span>
+                                </a>
+                            </li>
+                            <!--Start Phone Setting-->
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="<?php echo e(route('admin.phones.index')); ?>" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.phone-setting'); ?></span>
+                                </a>
+                            </li>
+                            <!--Start Email Setting-->
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="<?php echo e(route('admin.emails.index')); ?>" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.email-setting'); ?></span>
                                 </a>
                             </li>
                         </ul>

@@ -2,16 +2,15 @@
 
 namespace App\Models\Admin;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
+use Illuminate\Foundation\Auth\User;
 
-class Blog extends Model
+class Phone extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory;
 
-    public $translatable = ['title','text'];
+    protected $fillable = ["phone", "created_by"];
 
     public function user()
     {

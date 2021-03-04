@@ -112,12 +112,18 @@ return [
     "sub-about" => "Add About us Sub Menu Section ...",
     "setting-edit" => "Website Setting",
     "general-setting" => "General Settings",
+    "phone-setting" => "Phone Settings",
+    "email-setting" => "Email Settings",
     "website-title-en" => "Website Title.EN",
     "website-title-ar" => "Website Title.AR",
     "whatsapp-contact" => "Website Whatsapp Contact",
     "website-map" => "Website Map",
     "enter-map" => "Kindly Enter Website Map Iframe",
     "website-logo" => "  Upload Website Logo",
+    "receiveContacts" => "Do You Want to Use This Email To Receive Contacts Messages ?",
+    "receiveContact" => "Email Used To Receive Contacts Messages"
+
+
 
 
 

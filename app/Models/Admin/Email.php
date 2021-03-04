@@ -5,13 +5,12 @@ namespace App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
-class Blog extends Model
+class Email extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory;
 
-    public $translatable = ['title','text'];
+    protected $fillable = ["email","receive_contacts","created_by"];
 
     public function user()
     {

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'DashboardController@adminHome')->name('adminPanel');
 Route::get('settings/edit','SettingController@edit' )->name('settings.edit');
 Route::put('settings/update','SettingController@update' )->name('settings.update');
+Route::resource('phones','PhoneController');
+Route::resource('emails','EmailController');
 Route::resource('sliders', 'SliderController');
 Route::resource('blogs', 'BlogController');
 Route::get('/contacts', 'ContactController@index')->name('contacts');
