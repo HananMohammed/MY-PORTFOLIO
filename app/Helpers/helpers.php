@@ -8,7 +8,7 @@ if (! function_exists('asset_public')) {
     */
     function asset_public($path = null)
     {
-        return env('FRONT_PUBLIC', 'http://localhost/we-coders/public/') . $path;
+        return env('FRONT_PUBLIC', 'http://localhost/MY-PORTFOLIO/public/') . $path;
     }
 }
 if (! function_exists('image')) {
@@ -17,7 +17,7 @@ if (! function_exists('image')) {
      */
     function image($path = null)
     {
-        return env('FRONT_PUBLIC_ST ORAGE', 'http://localhost/el-ostora/storage/images/') . $path;
+        return env('FRONT_PUBLIC_ST ORAGE', 'http://localhost/MY-PORTFOLIO/storage/images/') . $path;
     }
 }
 if (! function_exists('upload_images')){

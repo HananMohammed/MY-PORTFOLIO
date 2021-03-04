@@ -3,10 +3,7 @@
     <div class="container-fluid d-flex">
 
         <div class="logo mr-auto">
-            <a href="{{route('front.homepage')}}">  <img src="{{asset_public('front/assets/images/logo.png')}}" style="    padding: 0;
-          margin: 0;
-          max-height: 60px;
-          margin-left: 100px;" ></a>
+            <a href="{{route('front.homepage')}}">  <img src="{{asset_public('front/assets/images/hanan.png')}}" ></a>
 
         </div>
 

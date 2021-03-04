@@ -6,6 +6,7 @@ namespace App\Traits;
 
 use App\Models\Admin\About;
 use App\Models\Admin\Blog;
+use App\Models\Admin\Setting;
 use App\Models\Admin\Slider;
 
 
@@ -19,10 +20,13 @@ class ViewData
         $slider = Slider::select('title','text','image')->first();
         $about = About::first();
         $blogs = Blog::orderBy('id', 'desc')->take(4)->get();
+        $setting = Setting::all();
+
         $data = [
             "slider" => $slider,
             "about" => $about,
-            "blogs" => $blogs
+            "blogs" => $blogs,
+            "setting" => $setting
          ];
         return $data ;
     }

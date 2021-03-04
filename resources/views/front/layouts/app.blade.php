@@ -8,14 +8,12 @@
     <meta name="author" content="Hanan-Mohammed"/>
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WE-CODERS|@yield('title')</title>
+    <title>{{$data["setting"][0]->title}}|@yield('title')</title>
     <!-- Favicons -->
-    <link href="{{asset_public('front/assets/images/logo.png')}}" rel="icon">
-    <link href="{{asset_public('front/assets/images/logo.png')}}" rel="apple-touch-icon">
-
+    <link href="{{asset_public('storage/uploads/'.$data["setting"][0]->image)}}" rel="icon">
+    <link href="{{asset_public('storage/uploads/'.$data["setting"][0]->image)}}" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-
     <!-- Vendor CSS Files -->
     <link href="{{asset_public('front/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset_public('front/assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
@@ -23,7 +21,6 @@
     <link href="{{asset_public('front/assets/vendor/venobox/venobox.css')}}" rel="stylesheet">
     <link href="{{asset_public('front/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset_public('front/assets/vendor/aos/aos.css')}}" rel="stylesheet">
-
     <!-- Template Main CSS File -->
     <link href="{{asset_public('front/assets/css/style.css')}}" rel="stylesheet">
     @yield('style')
@@ -58,7 +55,7 @@
 <script type="text/javascript">
     $(function () {
         $('#WAButton').floatingWhatsApp({
-            phone: 'WHATSAPP-PHONE-NUMBER', //WhatsApp Business phone number
+            phone: '{{$data["setting"][0]->whatsapp}}', //WhatsApp Business phone number
             headerTitle: 'Chat with us on WhatsApp!', //Popup Title
             popupMessage: 'Hello, how can we help you?', //Popup Message
             showPopup: true, //Enables popup display

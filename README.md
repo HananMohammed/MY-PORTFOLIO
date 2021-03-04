@@ -1,5 +1,5 @@
 
-## Laravel 8 portfolio website for WE-Coders Agency 
+## Laravel 8 portfolio website for Hanan's Portfolio
 
 this is portfolio website built using Laravel 8 and php 7.3 .
 
@@ -52,6 +52,6 @@ Please follow the guide.
 
 ## License
 
-The WE-CODERS  Portal is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Hanan's  Portfolio is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # Developed By Hanan Mohammed 
-# WE-CODERS 
+# Hanan Mohammed Portfolio 

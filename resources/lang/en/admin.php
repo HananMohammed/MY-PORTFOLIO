@@ -1,6 +1,6 @@
 <?php
 return [
-    'we-coders' => 'WE-CODERS',
+    'we-coders' => 'Portfolio AdminPanel',
     'homepage' =>'Homepage',
     'adminPanel' =>'Admin Panel',
     'about' => 'About us',
@@ -109,7 +109,18 @@ return [
     "phone" =>"Phone",
     "country" => "Country",
     "state" =>"State",
-    "sub-about" => "Add About us Sub Menu Section ..."
+    "sub-about" => "Add About us Sub Menu Section ...",
+    "setting-edit" => "Website Setting",
+    "general-setting" => "General Settings",
+    "website-title-en" => "Website Title.EN",
+    "website-title-ar" => "Website Title.AR",
+    "whatsapp-contact" => "Website Whatsapp Contact",
+    "website-map" => "Website Map",
+    "enter-map" => "Kindly Enter Website Map Iframe",
+    "website-logo" => "  Upload Website Logo",
+
+
+
 
 
 
