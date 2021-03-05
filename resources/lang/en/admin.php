@@ -121,7 +121,9 @@ return [
     "enter-map" => "Kindly Enter Website Map Iframe",
     "website-logo" => "  Upload Website Logo",
     "receiveContacts" => "Do You Want to Use This Email To Receive Contacts Messages ?",
-    "receiveContact" => "Email Used To Receive Contacts Messages"
+    "receiveContact" => "Email Used To Receive Contacts Messages",
+    "address_en" =>"English Address",
+    "address_ar" =>"Arabic Address"
 
 
 
