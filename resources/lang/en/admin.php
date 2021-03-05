@@ -114,6 +114,7 @@ return [
     "general-setting" => "General Settings",
     "phone-setting" => "Phone Settings",
     "email-setting" => "Email Settings",
+    "address-setting" => "Address Settings",
     "website-title-en" => "Website Title.EN",
     "website-title-ar" => "Website Title.AR",
     "whatsapp-contact" => "Website Whatsapp Contact",
@@ -123,7 +124,16 @@ return [
     "receiveContacts" => "Do You Want to Use This Email To Receive Contacts Messages ?",
     "receiveContact" => "Email Used To Receive Contacts Messages",
     "address_en" =>"English Address",
-    "address_ar" =>"Arabic Address"
+    "address_ar" =>"Arabic Address",
+    "social-media-title" =>"Social Media Title",
+    "social-media-icon" =>"Social Media Icon",
+    "related-social-media-icon" => "Related Social Media Icon",
+    "update-social-media-icon" =>"Update required Social Media Icon",
+    "select-social-media-icon" =>"Select required Social Media Icon",
+    "social-media-link" =>"Social Media Link",
+    "social-media" =>"Social Media",
+    "social-media-setting" =>"Social Media Setting",
+
 
 
 

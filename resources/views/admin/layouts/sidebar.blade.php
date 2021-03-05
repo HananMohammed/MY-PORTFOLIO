@@ -98,6 +98,24 @@
                                     <span class="menu-text">@lang('admin.email-setting')</span>
                                 </a>
                             </li>
+                            <!--Start Address Setting-->
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="{{route('admin.addresses.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">@lang('admin.address-setting')</span>
+                                </a>
+                            </li>
+                            <!--Start Social Media Setting-->
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="{{route('admin.social-media.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">@lang('admin.social-media-setting')</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

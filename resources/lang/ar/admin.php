@@ -107,6 +107,7 @@ return [
     "general-setting" => "الاعدادات العامه",
     "phone-setting" => "اعدادات الهاتف",
     "email-setting" => "اعدادات البريد الالكتروني",
+    "address-setting" => "اعدادات العنوان",
     "website-title-en" => "اسم الويبسايت باللغه الانجليزيه",
     "website-title-ar" => "اسم الويبسايت باللغه العربيه",
     "whatsapp-contact" => "رقم الواتساب الخاص بالويبسايت",
@@ -116,15 +117,15 @@ return [
     "receiveContacts" => "هل تريد استخدام هذا الايميل لاستقبال الرسائل ؟",
     "receiveContact" => "هذا الايميل لاستقبال الرسائل",
     "address_en" =>"العنوان باللغه الانجليزيه",
-    "address_ar" =>"العنوان باللغه العربيه"
-
-
-
-
-
-
-
-
+    "address_ar" =>"العنوان باللغه العربيه",
+    "social-media-title" =>"الاسم",
+    "social-media-icon" =>"الايكون",
+    "update-social-media-icon" =>"تعديل الايكون المتعلقه بهذا الموقع ",
+    "related-social-media-icon" => "الايكون المتعلقه بهذا الموقع ",
+    "select-social-media-icon" =>"برجاء اختيار الايكون الخاص بالموقع",
+    "social-media-link" =>"اللينك",
+    "social-media" =>"مواقع التواصل الاجتماعي",
+    "social-media-setting" =>"اعدادات مواقع التواصل الاجتماعي",
 
 
 
