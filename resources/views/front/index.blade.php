@@ -2,4 +2,7 @@
 @section('title',__('front.home'))
 @section('content')
     @include('front.slider.index')
-@endsection
+    <main id="main">
+        @include('front.about.index')
+    </main>
+  @endsection

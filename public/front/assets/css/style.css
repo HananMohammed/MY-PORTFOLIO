@@ -360,7 +360,8 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-size: 24px;
 }
 
-#hero .btn-get-started {
+#hero .btn-get-started,
+#about .btn-get-started{
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -1374,7 +1375,16 @@ section {
 #footer .credits a {
   color: #eb5d1e;
 }
-
+.contact-phone{
+    margin-left:30px!important;
+}
+.social-media svg{
+    width: 30px;
+    height: 30px;
+    fill:#eb5d1e;
+    padding: 2px;
+    margin: 7px;
+ }
 @media (max-width: 575px) {
   #footer .copyright, #footer .credits {
     float: none;

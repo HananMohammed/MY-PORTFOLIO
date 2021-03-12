@@ -18,6 +18,8 @@ return[
     "services" => "الخدمات",
     "project" => "المشاريع",
     "team" => "الفريق",
+    "download-cv" => "تحميل السي في"
+
 
 
 

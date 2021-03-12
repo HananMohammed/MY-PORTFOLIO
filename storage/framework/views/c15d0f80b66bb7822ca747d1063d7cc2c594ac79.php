@@ -44,7 +44,7 @@
 <script src="<?php echo e(asset_public('front/assets/vendor/jquery.easing/jquery.easing.min.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/vendor/php-email-form/validate.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/vendor/isotope-layout/isotope.pkgd.min.js')); ?>"></script>
-<script src="<?php echo e(asset_public('front/assets/vendor/venobox/venobox.min.js')); ?>'"></script>
+<script src="<?php echo e(asset_public('front/assets/vendor/venobox/venobox.min.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/vendor/owl.carousel/owl.carousel.min.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/vendor/aos/aos.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/js/main.js')); ?>"></script>
