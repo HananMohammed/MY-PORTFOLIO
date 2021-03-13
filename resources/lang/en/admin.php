@@ -133,6 +133,10 @@ return [
     "social-media-link" =>"Social Media Link",
     "social-media" =>"Social Media",
     "social-media-setting" =>"Social Media Setting",
+    "services" => "Services",
+    "list-services" => "List Services",
+    "create-service" => "Create Service",
+    "edit-service" => "Edit Service"
 
 
 

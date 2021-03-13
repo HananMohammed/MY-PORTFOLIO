@@ -183,7 +183,7 @@
 
                 </li>
                 <!--End About us-->
-                <!--Start Products-->
+                <!--Start Services-->
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -199,7 +199,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text"><?php echo app('translator')->get('admin.products'); ?></span>
+                        <span class="menu-text"><?php echo app('translator')->get('admin.services'); ?></span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
@@ -207,23 +207,23 @@
                         <ul class="menu-subnav">
                             <li class="menu-item menu-item-parent" aria-haspopup="true">
                                 <span class="menu-link">
-                                    <span class="menu-text"><?php echo app('translator')->get('admin.products'); ?></span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.services'); ?></span>
                                 </span>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="" class="menu-link">
+                                <a href="<?php echo e(route('admin.services.index')); ?>" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text"><?php echo app('translator')->get('admin.list-products'); ?></span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.list-services'); ?></span>
                                 </a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="" class="menu-link">
+                                <a href="<?php echo e(route('admin.services.create')); ?>" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text"><?php echo app('translator')->get('admin.create-product'); ?></span>
+                                    <span class="menu-text"><?php echo app('translator')->get('admin.create-service'); ?></span>
                                 </a>
                             </li>
                         </ul>

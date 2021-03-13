@@ -126,6 +126,10 @@ return [
     "social-media-link" =>"اللينك",
     "social-media" =>"مواقع التواصل الاجتماعي",
     "social-media-setting" =>"اعدادات مواقع التواصل الاجتماعي",
+    "services" => "الخدمات",
+    "list-services" => "عرض الخدمات",
+    "create-service" => "انشاء الخدمات",
+    "edit-service" => "تعديل الخدمه"
 
 
 

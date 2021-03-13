@@ -19,6 +19,7 @@ Route::put('settings/update','SettingController@update' )->name('settings.update
 Route::resource('phones','PhoneController');
 Route::resource('emails','EmailController');
 Route::resource('addresses','AdressController');
+Route::resource('services','ServiceController');
 Route::resource('social-media','SocialMediaController');
 Route::resource('sliders', 'SliderController');
 Route::resource('blogs', 'BlogController');
