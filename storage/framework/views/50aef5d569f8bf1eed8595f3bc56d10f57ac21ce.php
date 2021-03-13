@@ -9,7 +9,7 @@
                 <a data-aos="fade-up" href="#about" class="btn-get-started scrollto"><?php echo app('translator')->get('front.get-started'); ?></a>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-up">
-                <img src="<?php echo e(asset_public('storage/uploads/' . $data["slider"]->image)); ?>" class="img-fluid animated" alt="">
+                <img src="<?php echo e(asset_public('storage/uploads/' . $data["slider"]->image)); ?>" class="img-fluid animated" alt="" style="height: 350px;">
             </div>
         </div>
     </div>

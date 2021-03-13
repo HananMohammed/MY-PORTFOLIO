@@ -129,7 +129,17 @@ return [
     "services" => "الخدمات",
     "list-services" => "عرض الخدمات",
     "create-service" => "انشاء الخدمات",
-    "edit-service" => "تعديل الخدمه"
+    "edit-service" => "تعديل الخدمه",
+    "project-category" => "تصنيفات المشاريع",
+    "select-project-category" => " برجاء اختيار فئه المشروع",
+    "category_en" => "تصنيفات المشاريع باللغه الانجليزيه",
+    "category_ar" => "تصنيفات المشاريع باللغه العربيه",
+    "projects" => "المشاريع",
+    "list-projects" => " عرض المشاريع",
+    "create-project" => "انشاء مشروع",
+    "project-url" => "ادخال اللينك الحصري للمشروع",
+
+
 
 
 

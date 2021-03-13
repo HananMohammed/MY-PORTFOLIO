@@ -21,7 +21,11 @@ return[
     "team" => "Team",
     "download-cv" => "Download CV",
     "our-services" => "Our Services",
-    "check-out" =>"check out  our Services"
+    "check-out" =>"check out  our Services",
+    "recent-projects"=>"Our Recent Project",
+    "checkout-projects"=>"Check out our  PROJECT "
+
+
 
 
 

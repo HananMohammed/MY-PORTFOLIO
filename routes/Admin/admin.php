@@ -20,6 +20,8 @@ Route::resource('phones','PhoneController');
 Route::resource('emails','EmailController');
 Route::resource('addresses','AdressController');
 Route::resource('services','ServiceController');
+Route::resource('project-categories','ProjectCategoriesController');
+Route::resource('projects','ProjectController');
 Route::resource('social-media','SocialMediaController');
 Route::resource('sliders', 'SliderController');
 Route::resource('blogs', 'BlogController');

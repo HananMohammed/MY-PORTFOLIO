@@ -20,7 +20,9 @@ return[
     "team" => "الفريق",
     "download-cv" => "تحميل السي في",
     "our-services" => "خدماتنا",
-    "check-out" =>"تحقق من خدماتنا"
+    "check-out" =>"تحقق من خدماتنا",
+    "recent-projects"=>"المشاريع الاخيره",
+    "checkout-projects"=>"تحقق من مشاريعنا"
 
 
 

@@ -136,7 +136,16 @@ return [
     "services" => "Services",
     "list-services" => "List Services",
     "create-service" => "Create Service",
-    "edit-service" => "Edit Service"
+    "edit-service" => "Edit Service",
+    "project-category" => "Project Categories",
+    "select-project-category" => "Select Project Category",
+    "category_en" => "Project Category.EN",
+    "category_ar" => "Project Category.AR",
+    "create-project" => "Create Project",
+    "projects" => "Projects",
+    "list-projects" => "List Projects",
+    "project-url" => "Project Life URL or Link",
+
 
 
 
