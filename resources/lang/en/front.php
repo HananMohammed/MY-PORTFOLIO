@@ -19,8 +19,9 @@ return[
     "services" => "Services",
     "project" => "Projects",
     "team" => "Team",
-    "download-cv" => "Download CV"
-
+    "download-cv" => "Download CV",
+    "our-services" => "Our Services",
+    "check-out" =>"check out  our Services"
 
 
 

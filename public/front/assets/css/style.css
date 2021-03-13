@@ -1385,6 +1385,10 @@ section {
     padding: 2px;
     margin: 7px;
  }
+.service-img-color {
+    filter: drop-shadow(10px 10px 25px #e59f80);
+    -webkit-filter: drop-shadow(10px 10px 25px #de8a64);
+}
 @media (max-width: 575px) {
   #footer .copyright, #footer .credits {
     float: none;

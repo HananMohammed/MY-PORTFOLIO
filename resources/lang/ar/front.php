@@ -18,7 +18,9 @@ return[
     "services" => "الخدمات",
     "project" => "المشاريع",
     "team" => "الفريق",
-    "download-cv" => "تحميل السي في"
+    "download-cv" => "تحميل السي في",
+    "our-services" => "خدماتنا",
+    "check-out" =>"تحقق من خدماتنا"
 
 
 

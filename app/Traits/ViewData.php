@@ -9,6 +9,7 @@ use App\Models\Admin\Adress;
 use App\Models\Admin\Blog;
 use App\Models\Admin\Email;
 use App\Models\Admin\Phone;
+use App\Models\Admin\Service;
 use App\Models\Admin\Setting;
 use App\Models\Admin\Slider;
 use App\Models\Admin\SocialMedia;
@@ -29,6 +30,7 @@ class ViewData
         $phones = Phone::select('phone')->get();
         $addresses = Adress::select('address')->get();
         $socialMedia = SocialMedia::all();
+        $services = Service::all();
 
         $data = [
             "slider" => $slider,
@@ -38,7 +40,8 @@ class ViewData
             "emails" => $emails,
             "phones" => $phones,
             "addresses" => $addresses,
-            "socialMedia" => $socialMedia
+            "socialMedia" => $socialMedia,
+            "services" => $services
          ];
         return $data ;
     }
