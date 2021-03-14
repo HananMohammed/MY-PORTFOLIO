@@ -9,7 +9,7 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5"><?php echo app('translator')->get('slider.edit-project'); ?></h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5"><?php echo app('translator')->get('admin.edit-project'); ?></h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -17,7 +17,7 @@
                                 <a href="<?php echo e(route('admin.adminPanel')); ?>" class="text-muted"><?php echo app('translator')->get('admin.adminPanel'); ?></a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="javascrpit:;" class="text-muted"><?php echo app('translator')->get('slider.edit-project'); ?></a>
+                                <a href="javascrpit:;" class="text-muted"><?php echo app('translator')->get('admin.edit-project'); ?></a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -55,7 +55,7 @@
                         <!--begin::Card-->
                         <div class="card card-custom gutter-b example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title"><?php echo app('translator')->get('slider.edit-project'); ?></h3>
+                                <h3 class="card-title"><?php echo app('translator')->get('admin.edit-project'); ?></h3>
                             </div>
                             <!--begin::Form-->
                             <form action="<?php echo e(route('admin.projects.update',$project->id)); ?>" method="post" enctype="multipart/form-data">

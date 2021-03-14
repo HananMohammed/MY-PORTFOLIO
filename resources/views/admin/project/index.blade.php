@@ -79,7 +79,7 @@
                                         @foreach($projects as $project)
                                             <tr>
                                                 <td>{{$project->id}}</td>
-                                                <td>Test</td>
+                                                <td>{{ $project->category()->pluck('title')[0] }}</td>
                                                 <td><img src="{{asset_public('storage/uploads/'.$project->image)}}" style="width: 100px;height: 60px;"></td>
                                                 <td>{{$project->title}}</td>
                                                 <td>{!! $project->text !!}</td>

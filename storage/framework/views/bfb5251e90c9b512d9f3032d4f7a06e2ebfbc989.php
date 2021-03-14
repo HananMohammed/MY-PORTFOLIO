@@ -77,7 +77,7 @@
                                         <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
                                                 <td><?php echo e($project->id); ?></td>
-                                                <td>Test</td>
+                                                <td><?php echo e($project->category()->pluck('title')[0]); ?></td>
                                                 <td><img src="<?php echo e(asset_public('storage/uploads/'.$project->image)); ?>" style="width: 100px;height: 60px;"></td>
                                                 <td><?php echo e($project->title); ?></td>
                                                 <td><?php echo $project->text; ?></td>
