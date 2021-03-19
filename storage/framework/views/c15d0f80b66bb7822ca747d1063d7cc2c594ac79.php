@@ -8,6 +8,7 @@
     <meta name="author" content="Hanan-Mohammed"/>
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <title><?php echo e($data["setting"][0]->title); ?>|<?php echo $__env->yieldContent('title'); ?></title>
     <!-- Favicons -->
     <link href="<?php echo e(asset_public('storage/uploads/'.$data["setting"][0]->image)); ?>" rel="icon">
@@ -48,7 +49,8 @@
 <script src="<?php echo e(asset_public('front/assets/vendor/owl.carousel/owl.carousel.min.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/vendor/aos/aos.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/js/main.js')); ?>"></script>
-<!-- whatsapp Chat Section-->
+<script src="<?php echo e(asset_public('/js/app.js')); ?>"></script>
+ <!-- whatsapp Chat Section-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
 <!--whatsapp Chat Section-->

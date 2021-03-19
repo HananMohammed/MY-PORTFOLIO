@@ -5,5 +5,6 @@
     <main id="main">
         @include('front.about.index')
         @include('front.services.index')
+        @include('front.projects.index')
     </main>
   @endsection

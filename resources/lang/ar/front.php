@@ -22,7 +22,11 @@ return[
     "our-services" => "خدماتنا",
     "check-out" =>"تحقق من خدماتنا",
     "recent-projects"=>"المشاريع الاخيره",
-    "checkout-projects"=>"تحقق من مشاريعنا"
+    "checkout-projects"=>"تحقق من مشاريعنا",
+    "all" => "الكل",
+    "web" => "الويب",
+    "app" => "أبلكيشن",
+    "ui" => "التصميم"
 
 
 

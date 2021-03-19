@@ -23,7 +23,12 @@ return[
     "our-services" => "Our Services",
     "check-out" =>"check out  our Services",
     "recent-projects"=>"Our Recent Project",
-    "checkout-projects"=>"Check out our  PROJECT "
+    "checkout-projects"=>"Check out our  PROJECT ",
+    "all" => "All",
+    "web" => "Web",
+    "app" => "App",
+    "ui" => "UI"
+
 
 
 

@@ -20,3 +20,4 @@ Route::get('/signup', 'SignupController@index')->name('signup');
 Route::get('/contact-us', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@send')->name('sendMessage');
 Route::post("news-letter", "NewsLetterController@store")->name('newsLetter');
+Route::get('/projects', 'ProjectController@allProjects');
