@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title',__('front.home')); ?>
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('front.slider.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

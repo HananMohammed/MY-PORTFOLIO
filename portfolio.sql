@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2021 at 03:27 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Apr 20, 2021 at 09:40 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wecoders`
+-- Database: `portfolio`
 --
 
 -- --------------------------------------------------------
@@ -36,6 +36,34 @@ CREATE TABLE `abouts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `title`, `text`, `image`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '{\"en\":\"Hanan Mohammed is a fullstack software engineer\",\"ar\":\"\\u062d\\u0646\\u0627\\u0646 \\u0645\\u062d\\u0645\\u062f\"}', '{\"en\":\"<p>                    Your website success is not just a dream! It is a right start, with your sure desire and professional experience from us ...... and experience is the best proof Not every website on the Internet that we see will be successful and achieve its desired goal,&nbsp;<span style=\\\"font-family: Poppins, Helvetica, sans-serif;\\\">I\'m Senior Full-Stack developer . care about clean code, best practices, micro-services, and design patterns&nbsp;<\\/span><\\/p><p>\\r\\n                <\\/p>\",\"ar\":\"\\u0646\\u062c\\u0627\\u062d \\u0645\\u0648\\u0642\\u0639 \\u0627\\u0644\\u0648\\u064a\\u0628 \\u0627\\u0644\\u062e\\u0627\\u0635 \\u0628\\u0643 \\u0644\\u064a\\u0633 \\u0645\\u062c\\u0631\\u062f \\u062d\\u0644\\u0645! \\u0625\\u0646\\u0647\\u0627 \\u0628\\u062f\\u0627\\u064a\\u0629 \\u0635\\u062d\\u064a\\u062d\\u0629 \\u060c \\u0628\\u0631\\u063a\\u0628\\u062a\\u0643 \\u0627\\u0644\\u0623\\u0643\\u064a\\u062f\\u0629 \\u0648\\u062e\\u0628\\u0631\\u062a\\u0643 \\u0627\\u0644\\u0645\\u0647\\u0646\\u064a\\u0629 \\u0645\\u0646\\u0627 ...... \\u0648\\u0627\\u0644\\u062e\\u0628\\u0631\\u0629 \\u0647\\u064a \\u0623\\u0641\\u0636\\u0644 \\u062f\\u0644\\u064a\\u0644 \\u060c \\u0641\\u0644\\u064a\\u0633 \\u0643\\u0644 \\u0645\\u0648\\u0642\\u0639 \\u0639\\u0644\\u0649 \\u0627\\u0644\\u0625\\u0646\\u062a\\u0631\\u0646\\u062a \\u0646\\u0631\\u0627\\u0647 \\u0633\\u064a\\u0643\\u0648\\u0646 \\u0646\\u0627\\u062c\\u062d\\u064b\\u0627 \\u0648\\u064a\\u062d\\u0642\\u0642 \\u0647\\u062f\\u0641\\u0647 \\u0627\\u0644\\u0645\\u0646\\u0634\\u0648\\u062f \\u060c\\u0648\\u0623\\u064a\\u0636\\u0627 \\u0623\\u0646\\u0627 \\u0645\\u0637\\u0648\\u0631&nbsp; Full-Stack. \\u064a\\u0647\\u062a\\u0645 \\u0628\\u0627\\u0644\\u0643\\u0648\\u062f \\u0627\\u0644\\u0646\\u0638\\u064a\\u0641 \\u0648\\u0623\\u0641\\u0636\\u0644 \\u0627\\u0644\\u0645\\u0645\\u0627\\u0631\\u0633\\u0627\\u062a \\u0648\\u0627\\u0644\\u062e\\u062f\\u0645\\u0627\\u062a \\u0627\\u0644\\u062f\\u0642\\u064a\\u0642\\u0629 \\u0648\\u0623\\u0646\\u0645\\u0627\\u0637 \\u0627\\u0644\\u062a\\u0635\\u0645\\u064a\\u0645\"}', 'image1618903779.png', 1, '2021-04-20 05:29:39', '2021-04-20 05:36:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adresses`
+--
+
+CREATE TABLE `adresses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `adresses`
+--
+
+INSERT INTO `adresses` (`id`, `address`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '{\"en\":\"Cairo, Egypt.\",\"ar\":\"\\u0645\\u0635\\u0631 , \\u0627\\u0644\\u0642\\u0627\\u0647\\u0631\"}', 1, '2021-04-20 04:53:32', '2021-04-20 04:53:32');
 
 -- --------------------------------------------------------
 
@@ -68,6 +96,29 @@ CREATE TABLE `contacts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emails`
+--
+
+CREATE TABLE `emails` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `receive_contacts` tinyint(4) DEFAULT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `emails`
+--
+
+INSERT INTO `emails` (`id`, `email`, `receive_contacts`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'hananmohammed2468@gmail.com', 1, 1, '2021-04-20 04:52:48', '2021-04-20 04:52:48'),
+(2, 'info@we-coders.com', 1, 1, '2021-04-20 04:53:00', '2021-04-20 04:53:00');
 
 -- --------------------------------------------------------
 
@@ -105,8 +156,11 @@ CREATE TABLE `icons` (
 --
 
 INSERT INTO `icons` (`id`, `title`, `icon`, `related_to`, `created_at`, `updated_at`) VALUES
-(1, 'bx-receipt', '<i class=\"bx bx-receipt\"></i>', 'abouts', NULL, NULL),
-(2, 'bx-cube-alt', '<i class=\"bx bx-cube-alt\"></i>', 'abouts', NULL, NULL);
+(3, 'github', '<svg enable-background=\"new 0 0 24 24\" height=\"30\" viewBox=\"0 0 24 24\" width=\"25\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z\"></path></svg>', 'social_media', NULL, NULL),
+(4, 'linked-in', '<svg height=\"30\" viewBox=\"0 0 512 512\" width=\"25\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m475.074219 0h-438.148438c-20.394531 0-36.925781 16.53125-36.925781 36.925781v438.148438c0 20.394531 16.53125 36.925781 36.925781 36.925781h438.148438c20.394531 0 36.925781-16.53125 36.925781-36.925781v-438.148438c0-20.394531-16.53125-36.925781-36.925781-36.925781zm-293.464844 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0\" ></path></svg>', 'social_media', NULL, NULL),
+(5, 'codepen', '<svg enable-background=\"new 0 0 24 24\" height=\"25\" viewBox=\"0 0 24 24\" width=\"25\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m.455 16.512 10.969 7.314c.374.23.774.233 1.152 0l10.969-7.314c.281-.187.455-.522.455-.857v-7.312c0-.335-.174-.67-.455-.857l-10.969-7.313c-.374-.23-.774-.232-1.152 0l-10.969 7.313c-.281.187-.455.522-.455.857v7.312c0 .335.174.67.455.857zm10.514 4.528-8.076-5.384 3.603-2.411 4.473 2.987zm2.062 0v-4.808l4.473-2.987 3.603 2.411zm8.907-7.314-2.585-1.727 2.585-1.728zm-8.907-10.767 8.076 5.384-3.603 2.411-4.473-2.987zm-1.031 6.602 3.643 2.438-3.643 2.438-3.643-2.438zm-1.031-6.602v4.808l-4.473 2.987-3.603-2.411zm-8.906 7.314v-.001l2.585 1.728-2.585 1.728z\"></path></svg>', 'social_media', NULL, NULL),
+(6, 'facebook', '<svg fill=\"#000000\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 26 26\" width=\"26px\" height=\"26px\"><path d=\"M 21.125 0 L 4.875 0 C 2.183594 0 0 2.183594 0 4.875 L 0 21.125 C 0 23.816406 2.183594 26 4.875 26 L 21.125 26 C 23.816406 26 26 23.816406 26 21.125 L 26 4.875 C 26 2.183594 23.816406 0 21.125 0 Z M 20.464844 14.003906 L 18.03125 14.003906 L 18.03125 23.007813 L 13.96875 23.007813 L 13.96875 14.003906 L 12.390625 14.003906 L 12.390625 10.96875 L 13.96875 10.96875 L 13.96875 9.035156 C 13.96875 6.503906 15.019531 5 18.007813 5 L 21.03125 5 L 21.03125 8.023438 L 19.273438 8.023438 C 18.113281 8.023438 18.035156 8.453125 18.035156 9.265625 L 18.03125 10.96875 L 20.796875 10.96875 Z\"/></svg>', 'social_media', NULL, NULL),
+(7, 'twitter', '<svg fill=\"#000000\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 50 50\" width=\"50px\" height=\"50px\">    <path d=\"M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M36.237,20.524 c0.01,0.236,0.016,0.476,0.016,0.717C36.253,28.559,30.68,37,20.491,37c-3.128,0-6.041-0.917-8.491-2.489 c0.433,0.052,0.872,0.077,1.321,0.077c2.596,0,4.985-0.884,6.879-2.37c-2.424-0.044-4.468-1.649-5.175-3.847 c0.339,0.065,0.686,0.1,1.044,0.1c0.505,0,0.995-0.067,1.458-0.195c-2.532-0.511-4.441-2.747-4.441-5.432c0-0.024,0-0.047,0-0.07 c0.747,0.415,1.6,0.665,2.509,0.694c-1.488-0.995-2.464-2.689-2.464-4.611c0-1.015,0.272-1.966,0.749-2.786 c2.733,3.351,6.815,5.556,11.418,5.788c-0.095-0.406-0.145-0.828-0.145-1.262c0-3.059,2.48-5.539,5.54-5.539 c1.593,0,3.032,0.672,4.042,1.749c1.261-0.248,2.448-0.709,3.518-1.343c-0.413,1.292-1.292,2.378-2.437,3.064 c1.122-0.136,2.188-0.432,3.183-0.873C38.257,18.766,37.318,19.743,36.237,20.524z\"/></svg>', 'social_media', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,7 +189,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2021_01_23_110619_create_abouts_table', 1),
 (10, '2021_01_26_120254_create_contacts_table', 1),
 (11, '2021_02_07_133510_create_blogs_table', 1),
-(14, '2021_01_06_091134_create_icons_table', 2);
+(14, '2021_01_06_091134_create_icons_table', 2),
+(15, '2021_03_04_080728_create_settings_table', 3),
+(16, '2021_03_04_124046_create_phones_table', 3),
+(17, '2021_03_04_124217_create_emails_table', 3),
+(18, '2021_03_05_073859_create_adresses_table', 3),
+(19, '2021_03_05_083001_create_social_media_table', 3),
+(20, '2021_03_13_074413_create_services_table', 3),
+(21, '2021_03_13_104500_create_project_categories_table', 3),
+(22, '2021_03_13_110302_create_projects_table', 3);
 
 -- --------------------------------------------------------
 
@@ -170,6 +232,77 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phones`
+--
+
+CREATE TABLE `phones` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `phone` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `phones`
+--
+
+INSERT INTO `phones` (`id`, `phone`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '01009245890', 1, '2021-04-20 04:52:01', '2021-04-20 04:52:01'),
+(2, '01201611733', 1, '2021-04-20 04:52:14', '2021-04-20 04:52:14'),
+(3, '01551223187', 1, '2021-04-20 04:52:30', '2021-04-20 04:52:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` tinyint(4) NOT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_categories`
+--
+
+CREATE TABLE `project_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -187,9 +320,31 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('FSBMEVlxjormICTqto65hekDwHMPnmo7k4Ei28ib', 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiQVhCcUhuckszRVRucjFsNjRVUU1JQm4yZXJQeDlMSmZmM3VCQTdBTiI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHpJQUYyck1pWHJNODZnai85VDRuSU81Qi9meTNhQTlTR1hPVWpaN1EybGJKSFJtZU9Kb0VhIjtzOjY6ImxvY2FsZSI7czoyOiJhciI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkeklBRjJyTWlYck04NmdqLzlUNG5JTzVCL2Z5M2FBOVNHWE9Valo3UTJsYkpIUm1lT0pvRWEiO3M6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ3OiJodHRwOi8vbG9jYWxob3N0L3dlLWNvZGVycy9hci9hZG1pbi9hYm91dHMvZWRpdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1614258938),
-('KNS37mbdiex5smsTKFIoSd5s8aLIgZJW5dF3tByc', 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoibkJXTnJyVmZ3alFGTFdqR1RubExQb1BQVHo1bUF2c1BBYlpocEVUSyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2FyIjt9czo2OiJsb2NhbGUiO3M6MjoiYXIiO3M6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkeklBRjJyTWlYck04NmdqLzlUNG5JTzVCL2Z5M2FBOVNHWE9Valo3UTJsYkpIUm1lT0pvRWEiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHpJQUYyck1pWHJNODZnai85VDRuSU81Qi9meTNhQTlTR1hPVWpaN1EybGJKSFJtZU9Kb0VhIjt9', 1614248806),
-('rxgAOSkKUUh4qfdRTYjWlboQkEtTswPG8pUjTQf9', NULL, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiR09uU1ZqSzQxWFVtOHFVMEFYb0VVRlkwM2FoYUI0UU03YWR6QVNoTiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2VuIjt9czo2OiJsb2NhbGUiO3M6MjoiZW4iO3M6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6MzU6Imh0dHA6Ly9sb2NhbGhvc3Qvd2UtY29kZXJzL2VuL2FkbWluIjt9fQ==', 1614005250);
+('uAVlq83fu0EYyaAScAi5tejAOhYhMfEuZyQDeeK1', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiMzZJNVFQaFF2RXBJaXlHaHJiMnpzOFdhT1dJeElDVDZydGVnQ3laQyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTQ6Imh0dHA6Ly9sb2NhbGhvc3QvTVktUE9SVEZPTElPL2VuL2FkbWluL3NlcnZpY2VzL2NyZWF0ZSI7fXM6NjoibG9jYWxlIjtzOjI6ImVuIjtzOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHpJQUYyck1pWHJNODZnai85VDRuSU81Qi9meTNhQTlTR1hPVWpaN1EybGJKSFJtZU9Kb0VhIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCR6SUFGMnJNaVhyTTg2Z2ovOVQ0bklPNUIvZnkzYUE5U0dYT1VqWjdRMmxiSkhSbWVPSm9FYSI7fQ==', 1618904310);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `map` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `whatsapp` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `title`, `map`, `whatsapp`, `image`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '{\"en\":\"Hanan Mohammed\",\"ar\":\"\\u062d\\u0646\\u0627\\u0646 \\u0645\\u062d\\u0645\\u062f\"}', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13675.954867336583!2d31.393407493066395!3d31.026563998248662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79c514db1838f%3A0x2c85107942109750!2z2YXYs9iq2LTZgdmJINin2YTYqtij2YXZitmGINin2YTYtdit2YnYjCDYp9mE2YfYr9mJINmIINin2YTZhtmI2LHYjCDYp9mE2YXZhti12YjYsdip2Iwg2KfZhNiv2YLZh9mE2YrYqQ!5e0!3m2!1sar!2seg!4v1618901344056!5m2!1sar!2seg\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '1201611733', 'image1618901394.png', 1, '2021-04-20 04:49:54', '2021-04-20 04:49:54');
 
 -- --------------------------------------------------------
 
@@ -212,7 +367,33 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `text`, `image`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, '{\"en\":\"we-coders\",\"ar\":\"we-coders\"}', '{\"en\":\"is a websites development agency, providing all websites development services to local and international companies, whether online or offline.\",\"ar\":\"\\u0647\\u064a \\u0648\\u0643\\u0627\\u0644\\u0629 \\u062a\\u0637\\u0648\\u064a\\u0631 \\u0645\\u0648\\u0627\\u0642\\u0639 \\u0627\\u0644\\u0648\\u064a\\u0628 \\u060c \\u062a\\u0642\\u062f\\u0645 \\u062c\\u0645\\u064a\\u0639 \\u062e\\u062f\\u0645\\u0627\\u062a \\u062a\\u0637\\u0648\\u064a\\u0631 \\u0645\\u0648\\u0627\\u0642\\u0639 \\u0627\\u0644\\u0648\\u064a\\u0628 \\u0644\\u0644\\u0634\\u0631\\u0643\\u0627\\u062a \\u0627\\u0644\\u0645\\u062d\\u0644\\u064a\\u0629 \\u0648\\u0627\\u0644\\u062f\\u0648\\u0644\\u064a\\u0629 \\u060c \\u0633\\u0648\\u0627\\u0621 \\u0639\\u0628\\u0631 \\u0627\\u0644\\u0625\\u0646\\u062a\\u0631\\u0646\\u062a \\u0623\\u0648 \\u062f\\u0648\\u0646 \\u0627\\u0644\\u0627\\u062a\\u0635\\u0627\\u0644 \\u0628\\u0627\\u0644\\u0625\\u0646\\u062a\\u0631\\u0646\\u062a.\"}', 'image1614244953.png', 1, '2021-02-25 07:22:33', '2021-02-25 07:22:33');
+(1, '{\"en\":\"Hanan Mohammed\",\"ar\":\"\\u062d\\u0646\\u0627\\u0646 \\u0645\\u062d\\u0645\\u062f\"}', '{\"en\":\"<p><span style=\\\"font-family: Poppins, Helvetica, sans-serif;\\\">Passionate about Web-Development.&nbsp;<\\/span><span style=\\\"font-family: Poppins, Helvetica, sans-serif;\\\">&nbsp;<\\/span><span style=\\\"font-family: Poppins, Helvetica, sans-serif;\\\">providing all websites development services to local and international companies<\\/span><br><\\/p><p>\\r\\n                <\\/p>\",\"ar\":\"\\u0634\\u063a\\u0648\\u0641\\u0647 \\u0628\\u062a\\u0637\\u0648\\u064a\\u0631 \\u0627\\u0644\\u0648\\u064a\\u0628 \\u0648 \\u062a\\u0642\\u062f\\u064a\\u0645 \\u062c\\u0645\\u064a\\u0639 \\u062e\\u062f\\u0645\\u0627\\u062a \\u062a\\u0637\\u0648\\u064a\\u0631 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0642\\u0639 \\u0627\\u0644\\u0625\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\\u0629 \\u0644\\u0644\\u0634\\u0631\\u0643\\u0627\\u062a \\u0627\\u0644\\u0645\\u062d\\u0644\\u064a\\u0629 \\u0648\\u0627\\u0644\\u0639\\u0627\\u0644\\u0645\\u064a\\u0629\"}', 'image1618902929.png', 1, '2021-02-25 07:22:33', '2021-04-20 05:15:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `social_media`
+--
+
+CREATE TABLE `social_media` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `url` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon_id` int(11) NOT NULL,
+  `created_by` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `social_media`
+--
+
+INSERT INTO `social_media` (`id`, `url`, `icon_id`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'https://github.com/HananMohammed', 3, 1, '2021-04-20 04:57:05', '2021-04-20 04:57:05'),
+(2, 'https://www.linkedin.com/in/hanan-mohammed-75a28a139/', 4, 1, '2021-04-20 04:59:20', '2021-04-20 04:59:20'),
+(3, 'https://codepen.io/hananmohammed', 5, 1, '2021-04-20 05:05:03', '2021-04-20 05:05:03'),
+(4, 'https://www.facebook.com/hanan.mohamed2468/', 6, 1, '2021-04-20 05:08:39', '2021-04-20 05:08:39'),
+(5, 'https://twitter.com/HananM7md1', 7, 1, '2021-04-20 05:11:22', '2021-04-20 05:11:22');
 
 -- --------------------------------------------------------
 
@@ -241,7 +422,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `is_admin`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'WE-CODERS', 'admin@gmail.com', NULL, NULL, '$2y$10$zIAF2rMiXrM86gj/9T4nIO5B/fy3aA9SGXOUjZ7Q2lbJHRmeOJoEa', NULL, NULL, 'lJh1XLP5EZfseMPBcJMsa8ZcOPRhs0PjtIepeGhXrsDlHPLmx9XtmuJSqEkQ', NULL, NULL, NULL, NULL);
+(1, 'Hanan', 'admin@gmail.com', NULL, NULL, '$2y$10$zIAF2rMiXrM86gj/9T4nIO5B/fy3aA9SGXOUjZ7Q2lbJHRmeOJoEa', NULL, NULL, 'lJh1XLP5EZfseMPBcJMsa8ZcOPRhs0PjtIepeGhXrsDlHPLmx9XtmuJSqEkQ', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -255,6 +436,12 @@ ALTER TABLE `abouts`
   ADD KEY `abouts_created_by_index` (`created_by`);
 
 --
+-- Indexes for table `adresses`
+--
+ALTER TABLE `adresses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `blogs`
 --
 ALTER TABLE `blogs`
@@ -266,6 +453,13 @@ ALTER TABLE `blogs`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `emails`
+--
+ALTER TABLE `emails`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `emails_created_by_index` (`created_by`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -302,6 +496,35 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `phones`
+--
+ALTER TABLE `phones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `phones_created_by_index` (`created_by`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `projects_category_id_index` (`category_id`),
+  ADD KEY `projects_created_by_index` (`created_by`);
+
+--
+-- Indexes for table `project_categories`
+--
+ALTER TABLE `project_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_categories_created_by_index` (`created_by`);
+
+--
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `services_created_by_index` (`created_by`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -310,11 +533,24 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `settings_created_by_index` (`created_by`);
+
+--
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sliders_created_by_index` (`created_by`);
+
+--
+-- Indexes for table `social_media`
+--
+ALTER TABLE `social_media`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -331,7 +567,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `abouts`
 --
 ALTER TABLE `abouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `adresses`
+--
+ALTER TABLE `adresses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -346,6 +588,12 @@ ALTER TABLE `contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `emails`
+--
+ALTER TABLE `emails`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -355,13 +603,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `icons`
 --
 ALTER TABLE `icons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -370,10 +618,46 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `phones`
+--
+ALTER TABLE `phones`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project_categories`
+--
+ALTER TABLE `project_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `social_media`
+--
+ALTER TABLE `social_media`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
