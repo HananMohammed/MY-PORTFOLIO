@@ -9,6 +9,7 @@ window.Vue = require('vue').default;
 
 let app=createApp({})
 app.component('projects-component', require('./components/front/projects/projects').default);
+app.component('pagination', require('laravel-vue-pagination'));
 app.mixin(common);
 
 

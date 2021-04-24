@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Traits\ViewData;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        JsonResource::withoutWrapping();
+
         Paginator::useBootstrap();
         View::composer('front.*', function ($view){
             $data = ViewData::HomepageData();

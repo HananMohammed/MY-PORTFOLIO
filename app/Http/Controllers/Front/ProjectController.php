@@ -17,9 +17,9 @@ class ProjectController extends Controller
      */
     public function allProjects()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(6);
 
-        $data = ProjectResource::collection($projects);
+        $data = ProjectResource::collection($projects)->response()->getData(true);
          try
          {
             return $this->returnData("data", $data, "All Projects Returned Successfully ");

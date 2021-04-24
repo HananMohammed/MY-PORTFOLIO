@@ -625,7 +625,10 @@ section {
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
-
+.portfolio-item .img-fluid{
+    height:400px;
+    width: fit-content;
+}
 .portfolio #portfolio-flters {
   padding: 0;
   margin: 0 0 35px 0;
