@@ -5,14 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+        <title><?php echo e(config('app.name', 'Hanan')); ?></title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="<?php echo e(asset_public('css/app.css')); ?>">
-
+        <link rel="stylesheet" href="<?php echo e(asset_public('css/main.css')); ?>">
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
     </head>

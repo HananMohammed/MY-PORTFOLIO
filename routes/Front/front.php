@@ -21,3 +21,5 @@ Route::get('/contact-us', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@send')->name('sendMessage');
 Route::post("news-letter", "NewsLetterController@store")->name('newsLetter');
 Route::get('/projects', 'ProjectController@allProjects');
+Route::get('/projects/category/{id}', 'ProjectController@categoryProject');
+Route::get('/categories', 'ProjectController@categories');

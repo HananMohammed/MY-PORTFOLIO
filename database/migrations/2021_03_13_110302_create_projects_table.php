@@ -15,8 +15,8 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('text');
+            $table->text('title');
+            $table->text('text');
             $table->text('image');
             $table->text('url');
             $table->tinyInteger('category_id')->index();

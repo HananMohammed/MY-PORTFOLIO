@@ -16417,34 +16417,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       location: '/MY-PORTFOLIO/public/storage/uploads/',
-      projects: []
+      projects: [],
+      categories: []
     };
   },
   created: function created() {
     this.getAllProjects();
   },
   methods: {
-    getAllProjects: function () {
-      var _getAllProjects = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var projects;
+    getCategories: function () {
+      var _getCategories = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _this = this;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.callApi('get', "".concat(window.location.href, "/projects"));
+                return this.callApi('get', "".concat(window.location.href, "/categories")).then(function (response) {
+                  if (response.status = 200) {
+                    _this.categories = response.data.data;
+                  }
+                })["catch"](function (error) {
+                  _this.e(error.data.message, 'Error');
+                });
 
               case 2:
-                projects = _context.sent;
-                console.log(projects);
-
-                if (projects.status = 200) {
-                  this.projects = projects.data.data.data;
-                } else {
-                  this.e('something went wrong', 'Error');
-                }
-
-              case 5:
               case "end":
                 return _context.stop();
             }
@@ -16452,40 +16450,87 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, this);
       }));
 
+      function getCategories() {
+        return _getCategories.apply(this, arguments);
+      }
+
+      return getCategories;
+    }(),
+    getAllProjects: function () {
+      var _getAllProjects = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var _this2 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.callApi('get', "".concat(window.location.href, "/projects")).then(function (response) {
+                  if (response.status = 200) {
+                    _this2.projects = response.data.data.data;
+                  }
+                })["catch"](function (error) {
+                  _this2.e(error.data.message, 'Error');
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
       function getAllProjects() {
         return _getAllProjects.apply(this, arguments);
       }
 
       return getAllProjects;
-    }()
+    }(),
+    getCategoryProject: function getCategoryProject(event, id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return _this3.callApi('get', "".concat(window.location.href, "/projects/category/").concat(id)).then(function (response) {
+                  if (response.status = 200) {
+                    _this3.projects = response.data.data.data;
+                  }
+                })["catch"](function (error) {
+                  _this3.e(error.data.message, 'Error');
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this4 = this;
 
-    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-      var result;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context4.prev = _context4.next) {
             case 0:
-              _context2.next = 2;
-              return _this.callApi('get', "".concat(window.location.href, "/projects"));
+              _this4.getCategories();
+
+              _this4.getAllProjects();
 
             case 2:
-              result = _context2.sent;
-
-              if (result.status = 200) {
-                _this.projects = result.data.data.data;
-              } else {
-                _this.e('something went wrong', 'Error');
-              }
-
-            case 4:
             case "end":
-              return _context2.stop();
+              return _context4.stop();
           }
         }
-      }, _callee2);
+      }, _callee4);
     }))();
   }
 });
@@ -16528,39 +16573,30 @@ var _hoisted_6 = {
   id: "portfolio-flters"
 };
 var _hoisted_7 = {
-  "data-filter": ".filter-app"
-};
-var _hoisted_8 = {
-  "data-filter": ".filter-card"
-};
-var _hoisted_9 = {
-  "data-filter": ".filter-web"
-};
-var _hoisted_10 = {
   "class": "row portfolio-container",
   "data-aos": "fade-up",
   "data-aos-delay": "200"
 };
-var _hoisted_11 = {
+var _hoisted_8 = {
   "class": "col-lg-4 col-md-6 portfolio-item"
 };
-var _hoisted_12 = {
+var _hoisted_9 = {
   "class": "portfolio-links"
 };
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icofont-plus-circle"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icofont-link"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_12 = {
   "class": "portfolio-info"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -16576,14 +16612,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"]))
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.all), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.web), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.app), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ui), 1
-  /* TEXT */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.projects, function (project) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+  ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.categories, function (category) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
+      "data-filter": ".filter-app",
+      onClick: function onClick($event) {
+        return $options.getCategoryProject($event, category.id);
+      }
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.title), 9
+    /* TEXT, PROPS */
+    , ["onClick"]);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.projects, function (project) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
       "class": "portfolio-wrap",
       key: project.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
@@ -16592,19 +16633,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       alt: ""
     }, null, 8
     /* PROPS */
-    , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+    , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
       href: $data.location + project.image,
       "data-gall": "portfolioGallery",
       "class": "venobox",
       title: "App 1"
-    }, [_hoisted_13], 8
+    }, [_hoisted_10], 8
     /* PROPS */
     , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
       href: project.url,
       title: "More Details"
-    }, [_hoisted_14], 8
+    }, [_hoisted_11], 8
     /* PROPS */
-    , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h4", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(project.title), 1
+    , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h4", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(project.title), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
       innerHTML: project.text

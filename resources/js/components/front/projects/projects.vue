@@ -14,9 +14,7 @@
                             class="filter-active"
                             @click.prevent="getAllProjects"
                         >{{ all }}</li>
-                        <li data-filter=".filter-app">{{ web }}</li>
-                        <li data-filter=".filter-card">{{ app }}</li>
-                        <li data-filter=".filter-web">{{ ui }}</li>
+                        <li data-filter=".filter-app" v-for="category in categories" @click="getCategoryProject($event, category.id)">{{ category.title }}</li>
                     </ul>
                 </div>
             </div>
@@ -64,29 +62,50 @@ export default {
         return {
             location:'/MY-PORTFOLIO/public/storage/uploads/',
             projects:[],
+            categories:[],
         }
     },
     created() {
         this.getAllProjects();
     },
     methods:{
+        getCategories: async function(){
+            await this.callApi('get',`${window.location.href}/categories`)
+                .then(response => {
+                    if (response.status = 200){
+                        this.categories = response.data.data
+                    }
+                })
+                .catch(error => {
+                    this.e(error.data.message,'Error')
+                });
+        },
         getAllProjects: async function (){
-            const projects = await this.callApi('get',`${window.location.href}/projects`)
-            console.log(projects)
-            if (projects.status = 200){
-                this.projects = projects.data.data.data
-            }else{
-                this.e('something went wrong','Error')
-            }
+            await this.callApi('get',`${window.location.href}/projects`)
+                  .then(response => {
+                      if (response.status = 200){
+                          this.projects = response.data.data.data
+                      }
+                  })
+                  .catch(error => {
+                        this.e(error.data.message,'Error')
+                  });
+        },
+       async getCategoryProject(event, id){
+            await this.callApi('get',`${window.location.href}/projects/category/${id}`)
+                .then(response => {
+                    if (response.status = 200){
+                        this.projects = response.data.data.data
+                    }
+                })
+                .catch(error => {
+                    this.e(error.data.message,'Error')
+                });
         }
     },
     async mounted() {
-        const result = await this.callApi('get',`${window.location.href}/projects`)
-          if (result.status = 200){
-            this.projects = result.data.data.data
-        }else{
-            this.e('something went wrong','Error')
-        }
+        this.getCategories();
+        this.getAllProjects();
     }
 
 }
