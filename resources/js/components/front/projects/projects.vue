@@ -11,15 +11,19 @@
                     <ul id="portfolio-flters">
                         <li
                             data-filter="*"
-                            class="filter-active"
+                            :class="active? 'filter-active' :''"
+                            v-on:click="active= !active"
                             @click.prevent="getAllProjects"
                         >{{ all }}</li>
-                        <li data-filter=".filter-app" v-for="category in categories" @click="getCategoryProject($event, category.id)">{{ category.title }}</li>
+                        <li  v-for="(category, index) in categories"
+                             :data-filter=" category.title == 'App' ? '.filter-app' :  category.title == 'Web' ? '.filter-web' : '.filter-ui' "
+                             @click="getCategoryProject($event, category.id)"
+                             >{{ category.title }}</li>
                     </ul>
                 </div>
             </div>
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-lg-4 col-md-6 portfolio-item" v-for="project in projects">
+                <div class="col-lg-4 col-md-6 portfolio-item" v-for="project in projects.data" :key="project.id" v-if="projects">
                     <div class="portfolio-wrap" :key="project.id">
                         <img :src="location+project.image" class="img-fluid" alt="">
                         <div class="portfolio-links">
@@ -32,9 +36,32 @@
                         </div>
                     </div>
                 </div>
-<!--                <pagination-->
-<!--                    :data="projects"-->
-<!--                ></pagination>-->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination" v-if="projects.meta && projects.meta.total>6">
+                        <li
+                            :class=" projects.meta.current_page == 1 ? 'disabled' : '' "
+                            @click.prevent="previous"
+                        >
+                            <a class="prev"  tabindex="-1" aria-disabled="true"><i class="fas fa-chevron-left"></i> prev</a>
+                        </li>
+                        <li class="pageNumber"
+                            v-for="item in projects.meta.last_page"
+                            :class="projects.meta.current_page == item ? 'active' : ''"
+                            :aria-current="projects.meta.current_page == item ?'page':''"
+                            @click.prevent="getResults(item)"
+                        >
+                            <a>
+                                {{ item }}<span class="sr-only" v-if="projects.meta.current_page == item ">(current)</span>
+                            </a>
+                        </li>
+                        <li
+                            :class=" projects.meta.current_page == projects.meta.last_page ? 'disabled' : '' "
+                            @click.prevent="next"
+                        >
+                            <a class="next" tabindex="-1" aria-disabled="true"> Next <i class="fas fa-chevron-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </section>
@@ -42,35 +69,25 @@
 </template>
 
 <script>
-import pagination from 'laravel-vue-pagination';
-
-export default {
+ export default {
     name:'projects-component',
-    components:
-        {
-            pagination
-        },
-    props:[
+     props:[
         'recentProjects',
         'checkoutProjects',
-        'all',
-        'web',
-        'app',
-        'ui'
+        'all'
     ],
     data() {
         return {
             location:'/MY-PORTFOLIO/public/storage/uploads/',
-            projects:[],
+            projects:{},
             categories:[],
+            total:6,
+            active:true,
         }
-    },
-    created() {
-        this.getAllProjects();
     },
     methods:{
         getCategories: async function(){
-            await this.callApi('get',`${window.location.href}/categories`)
+            await this.callApi('get',`categories`)
                 .then(response => {
                     if (response.status = 200){
                         this.categories = response.data.data
@@ -80,34 +97,199 @@ export default {
                     this.e(error.data.message,'Error')
                 });
         },
-        getAllProjects: async function (){
-            await this.callApi('get',`${window.location.href}/projects`)
+        getAllProjects: async function (page){
+            if (page == 'undefined'){
+                page = 1;
+            }
+            await this.callApi('get',`projects?page=${page}&total=${this.total}`)
                   .then(response => {
                       if (response.status = 200){
-                          this.projects = response.data.data.data
+                          this.projects = response.data.data
+                          console.log(this.projects)
                       }
                   })
                   .catch(error => {
                         this.e(error.data.message,'Error')
                   });
         },
-       async getCategoryProject(event, id){
-            await this.callApi('get',`${window.location.href}/projects/category/${id}`)
+       async getCategoryProject(event, id, page = 1){
+           $("li").removeClass("filter-active");
+           this.active=false
+           event.target.className += 'filter-active'
+           await this.callApi('get',`projects/category/${id}?page=${page}&total=${this.total}`)
                 .then(response => {
                     if (response.status = 200){
-                        this.projects = response.data.data.data
+                        this.projects = response.data.data
                     }
                 })
                 .catch(error => {
                     this.e(error.data.message,'Error')
                 });
+        },
+       async getResults(page){
+            if (page == 'undefined'){
+                page = 1;
+            }
+            console.log(this.projects.meta.path)
+           if (this.projects.meta.path == window.location.href+'/projects'){
+               await this.callApi('get',`projects?page=${page}&total=${this.total}`)
+                   .then(response => {
+                       if (response.status = 200){
+                           this.projects = response.data.data
+                           console.log(this.projects)
+                       }
+                   })
+                   .catch(error => {
+                       this.e(error.data.message,'Error')
+                   });
+           }else{
+               this.callApi('get', this.projects.meta.path+'?page='+page)
+                   .then(response => {
+                       if (response.status = 200){
+                           this.projects = response.data.data
+                       }
+                   })
+                   .catch(error => {
+                       this.e(error.data.message,'Error')
+                   });
+           }
+
+        },
+       previous(){
+            let page = this.projects.meta.current_page;
+            if (page > 1 ){
+                if(this.projects.meta.path == window.location.href+'/projects') {
+                    this.getAllProjects(page-1);
+                }else{
+                    page -= 1
+                    this.callApi('get', this.projects.meta.path+'?page='+page)
+                        .then(response => {
+                            if (response.status = 200){
+                                this.projects = response.data.data
+                            }
+                        })
+                        .catch(error => {
+                            this.e(error.data.message,'Error')
+                        });
+                }
+            }
+       },
+       next(){
+           console.log(this.projects.meta.path)
+           let page = this.projects.meta.current_page;
+           if (page < this.projects.meta.last_page){
+               if(this.projects.meta.path == window.location.href+'/projects') {
+                   this.getAllProjects(page+1);
+               }else{
+                   page += 1
+                    this.callApi('get', this.projects.meta.path+'?page='+page)
+                       .then(response => {
+                           if (response.status = 200){
+                               this.projects = response.data.data
+                           }
+                       })
+                       .catch(error => {
+                           this.e(error.data.message,'Error')
+                       });
+               }
+           }
         }
     },
     async mounted() {
+        $(document).ready(function() {
+            $(".next").click(function() {
+                $(".pagination")
+                    .find(".pageNumber.active")
+                    .next()
+                    .addClass("active");
+                $(".pagination")
+                    .find(".pageNumber.active")
+                    .prev()
+                    .removeClass("active");
+            });
+            $(".prev").click(function() {
+                $(".pagination")
+                    .find(".pageNumber.active")
+                    .prev()
+                    .addClass("active");
+                $(".pagination")
+                    .find(".pageNumber.active")
+                    .next()
+                    .removeClass("active");
+            });
+        });
         this.getCategories();
         this.getAllProjects();
-    }
+     }
 
 }
 
 </script>
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
+
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*    font-family: "Poppins", sans-serif;*/
+/*}*/
+
+/*body {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    min-height: 100vh;*/
+/*    background: #f1f1f1;*/
+/*}*/
+
+.pagination {
+    /*font-family: "Poppins", sans-serif;*/
+    position: relative;
+    top: 30px;
+    left: 100%;
+    background: #fff;
+    display: flex;
+    padding: 5px 10px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pagination li {
+    list-style: none;
+    line-height: 50px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination li.pageNumber {
+    position: relative;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.pagination li a {
+    display: block;
+    text-decoration: none;
+    color: #383838;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+.pagination li.pageNumber:hover a,
+.pagination li.pageNumber.active a {
+    background: #383838;
+    color: #fff;
+}
+
+.pagination li:first-child,
+.pagination li:last-child{
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+</style>

@@ -34,9 +34,9 @@ class ProjectController extends Controller
     /**
      * Return All Projects in Json
      */
-    public function allProjects()
+    public function allProjects(Request $request)
     {
-        $projects = Project::paginate(6);
+        $projects = Project::paginate($request->total);
 
         $data = ProjectResource::collection($projects)->response()->getData(true);
          try

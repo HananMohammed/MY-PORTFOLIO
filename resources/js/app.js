@@ -4,12 +4,12 @@ import common from './common';
 
 require('./bootstrap');
 
-window.Vue = require('vue').default;
+window.Vue = require('vue');
 
 
 let app=createApp({})
+app.component('pagination', require('laravel-vue-pagination').default);
 app.component('projects-component', require('./components/front/projects/projects').default);
-app.component('pagination', require('laravel-vue-pagination'));
 app.mixin(common);
 
 
