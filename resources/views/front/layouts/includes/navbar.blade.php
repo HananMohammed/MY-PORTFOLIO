@@ -9,7 +9,7 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">@lang('front.home')</a></li>
+                <li class="active"><a href="{{route('front.homepage')}}">@lang('front.home')</a></li>
                 <li><a href="#about">@lang('front.about')</a></li>
                 <li><a href="#services">@lang('front.services')</a></li>
                 <li><a href="#portfolio">@lang('front.project')</a></li>

@@ -3,10 +3,12 @@ return[
     "future" =>"Higher Future Institute",
     "address1" => "Mansoura Upper Bridge-Mansoura Damietta Road",
     "address2" => "next to the new parking in Talkha.",
-    "contact" => "Contact Us",
-    "contact-to-start" => "Contact us to get start Our Business",
+    "contact" => "Contact Me",
+    "contact-to-start" => "Contact Me to get start Our Business",
     "location" => "Location :",
-    "address" => "Cairo, Egypt",
+    "phone" => "Phone: ",
+    "address" => "Address : ",
+    'useful' => 'Useful Links',
     "social" =>"Social Media",
     "follow" =>"Follow Us",
     "admission" =>"Admision",
@@ -25,14 +27,17 @@ return[
     "project" => "Projects",
     "team" => "Team",
     "download-cv" => "Download CV",
-    "our-services" => "Our Services",
-    "check-out" =>"check out  our Services",
-    "recent-projects"=>"Our Recent Project",
-    "checkout-projects"=>"Check out our  PROJECT ",
+    "our-services" => "Services",
+    'social-network' => 'Social Networks',
+    "check-out" =>"Check out Services",
+    "recent-projects"=>"My Recent Projects",
+    "checkout-projects"=>"Check out My  Projects ",
     "all" => "All",
     "web" => "Web",
     "app" => "App",
-    "ui" => "UI"
+    "ui" => "UI",
+    "specialized"=>" I'm specialized as a fullstack developer and solving all web and backend development problems"
+
 
 
 

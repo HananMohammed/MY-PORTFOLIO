@@ -8,5 +8,4 @@
         @include('front.projects.index')
         @include('front.contact.index')
     </main>
-    @include('front.layouts.includes.footer')
   @endsection

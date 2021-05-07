@@ -4,7 +4,7 @@
 
         <div class="row justify-content-between">
             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-                <img src="<?php echo e(asset_public('storage/uploads/'.$data["about"]->image)); ?>" class="img-fluid img2" alt="" style="height: 400px;" data-aos="zoom-in">
+                <img src="<?php echo e(asset_public('storage/uploads/'.$data["about"]->image)); ?>" class="img-fluid img2" alt="" style="height: 370px;" data-aos="zoom-in">
             </div>
             <div class="col-lg-6 pt-5 pt-lg-0">
                 <h3 data-aos="fade-up"><?php echo e($data["about"]->title); ?></h3>

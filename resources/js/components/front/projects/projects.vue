@@ -223,11 +223,11 @@
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
-.pagination {
-    /*font-family: "Poppins", sans-serif;*/
+nav{
     position: relative;
-    top: 30px;
-    left: 100%;
+    left: 35%;
+}
+.pagination {
     background: #fff;
     display: flex;
     padding: 5px 10px;
@@ -254,14 +254,16 @@
 .pagination li a {
     display: block;
     text-decoration: none;
-    color: #383838;
+    /*color: #383838;*/
+    color:#eb5d1e;
     font-weight: 600;
     border-radius: 50%;
 }
 
 .pagination li.pageNumber:hover a,
 .pagination li.pageNumber.active a {
-    background: #383838;
+    /*background: #383838;*/
+    background: #eb5d1e;
     color: #fff;
 }
 

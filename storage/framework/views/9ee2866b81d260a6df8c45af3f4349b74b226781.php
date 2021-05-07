@@ -9,7 +9,7 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html"><?php echo app('translator')->get('front.home'); ?></a></li>
+                <li class="active"><a href="<?php echo e(route('front.homepage')); ?>"><?php echo app('translator')->get('front.home'); ?></a></li>
                 <li><a href="#about"><?php echo app('translator')->get('front.about'); ?></a></li>
                 <li><a href="#services"><?php echo app('translator')->get('front.services'); ?></a></li>
                 <li><a href="#portfolio"><?php echo app('translator')->get('front.project'); ?></a></li>
