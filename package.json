@@ -16,11 +16,12 @@
         "axios": "^0.21.1",
         "babel-core": "^6.26.3",
         "babel-loader": "^8.2.2",
+        "babel-plugin-component": "^1.1.1",
         "babel-preset-env": "^1.7.0",
         "bootstrap": "^4.0.0",
         "jquery": "^3.2",
         "laravel-mix": "^6.0.13",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.21",
         "popper.js": "^1.12",
         "postcss": "^8.1.14",
         "postcss-import": "^12.0.1",
@@ -35,6 +36,7 @@
     },
     "dependencies": {
         "cross-env": "^7.0.3",
+        "mosha-vue-toastify": "^1.0.11",
         "vue-resource": "^1.5.2",
         "vuex": "^3.6.2"
     }

@@ -6,5 +6,7 @@
         @include('front.about.index')
         @include('front.services.index')
         @include('front.projects.index')
+        @include('front.contact.index')
     </main>
+    @include('front.layouts.includes.footer')
   @endsection

@@ -105,7 +105,6 @@
                   .then(response => {
                       if (response.status = 200){
                           this.projects = response.data.data
-                          console.log(this.projects)
                       }
                   })
                   .catch(error => {
@@ -130,13 +129,11 @@
             if (page == 'undefined'){
                 page = 1;
             }
-            console.log(this.projects.meta.path)
            if (this.projects.meta.path == window.location.href+'/projects'){
                await this.callApi('get',`projects?page=${page}&total=${this.total}`)
                    .then(response => {
                        if (response.status = 200){
                            this.projects = response.data.data
-                           console.log(this.projects)
                        }
                    })
                    .catch(error => {
@@ -175,7 +172,6 @@
             }
        },
        next(){
-           console.log(this.projects.meta.path)
            let page = this.projects.meta.current_page;
            if (page < this.projects.meta.last_page){
                if(this.projects.meta.path == window.location.href+'/projects') {
@@ -227,22 +223,6 @@
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
-
-/** {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    box-sizing: border-box;*/
-/*    font-family: "Poppins", sans-serif;*/
-/*}*/
-
-/*body {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    min-height: 100vh;*/
-/*    background: #f1f1f1;*/
-/*}*/
-
 .pagination {
     /*font-family: "Poppins", sans-serif;*/
     position: relative;
