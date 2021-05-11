@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" style="height: max-content;">
     <projects-component
         :recent-projects = "'<?php echo app('translator')->get('front.recent-projects'); ?>'"
         :checkout-projects = "'<?php echo app('translator')->get('front.checkout-projects'); ?>'"

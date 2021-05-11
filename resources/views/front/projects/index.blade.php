@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" style="height: max-content;">
     <projects-component
         :recent-projects = "'@lang('front.recent-projects')'"
         :checkout-projects = "'@lang('front.checkout-projects')'"

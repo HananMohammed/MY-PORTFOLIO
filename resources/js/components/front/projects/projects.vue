@@ -23,7 +23,11 @@
                 </div>
             </div>
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-lg-4 col-md-6 portfolio-item" v-for="project in projects.data" :key="project.id" v-if="projects">
+                <div
+                    class="col-lg-4 col-md-6 portfolio-item"
+                    v-for="project in projects.data" :key="project.id"
+                    v-if="projects"
+                >
                     <div class="portfolio-wrap" :key="project.id">
                         <img :src="location+project.image" class="img-fluid" alt="">
                         <div class="portfolio-links">
@@ -140,7 +144,7 @@
                        this.e(error.data.message,'Error')
                    });
            }else{
-               this.callApi('get', this.projects.meta.path+'?page='+page)
+               this.callApi('get', this.projects.meta.path+'?page='+page+`&total=${this.total}`)
                    .then(response => {
                        if (response.status = 200){
                            this.projects = response.data.data
@@ -155,11 +159,11 @@
        previous(){
             let page = this.projects.meta.current_page;
             if (page > 1 ){
-                if(this.projects.meta.path == window.location.href+'/projects') {
+                if(this.projects.meta.path == window.location.href+'/projects?'+`total=${this.total}`) {
                     this.getAllProjects(page-1);
                 }else{
                     page -= 1
-                    this.callApi('get', this.projects.meta.path+'?page='+page)
+                    this.callApi('get', this.projects.meta.path+'?page='+page+`&total=${this.total}`)
                         .then(response => {
                             if (response.status = 200){
                                 this.projects = response.data.data
@@ -174,11 +178,11 @@
        next(){
            let page = this.projects.meta.current_page;
            if (page < this.projects.meta.last_page){
-               if(this.projects.meta.path == window.location.href+'/projects') {
+               if(this.projects.meta.path == window.location.href+'/projects?'+`total=${this.total}`) {
                    this.getAllProjects(page+1);
                }else{
                    page += 1
-                    this.callApi('get', this.projects.meta.path+'?page='+page)
+                    this.callApi('get', this.projects.meta.path+'?page='+page+`&total=${this.total}`)
                        .then(response => {
                            if (response.status = 200){
                                this.projects = response.data.data
@@ -224,8 +228,9 @@
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
 nav{
-    position: relative;
+    position: fixed;
     left: 35%;
+    top: 850px;
 }
 .pagination {
     background: #fff;
@@ -273,5 +278,4 @@ nav{
     font-weight: 700;
     font-size: 18px;
 }
-
 </style>

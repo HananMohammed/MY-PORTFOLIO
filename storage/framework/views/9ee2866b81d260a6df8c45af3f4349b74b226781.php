@@ -9,11 +9,11 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="<?php echo e(route('front.homepage')); ?>"><?php echo app('translator')->get('front.home'); ?></a></li>
+                <li class="active"><a href="#header"><?php echo app('translator')->get('front.home'); ?></a></li>
                 <li><a href="#about"><?php echo app('translator')->get('front.about'); ?></a></li>
                 <li><a href="#services"><?php echo app('translator')->get('front.services'); ?></a></li>
                 <li><a href="#portfolio"><?php echo app('translator')->get('front.project'); ?></a></li>
-                <li><a href="#team"><?php echo app('translator')->get('front.team'); ?></a></li>
+
                 <li><a href="#contact"><?php echo app('translator')->get('front.contact'); ?></a></li>
                 <li>
                     <?php if(app()->getLocale() == 'ar'): ?>

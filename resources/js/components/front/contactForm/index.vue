@@ -53,7 +53,8 @@ export default {
                 email:'',
                 subject:'',
                 message:'',
-            }
+            },
+            projects:''
         }
     },
     methods:{
@@ -114,7 +115,7 @@ export default {
                         }
                     });
                 });
-        }
+        },
     }
 }
 </script>

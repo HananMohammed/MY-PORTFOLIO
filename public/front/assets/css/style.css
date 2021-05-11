@@ -157,6 +157,29 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   transition: ease all 0.3s;
 }
 
+
+.img2
+{
+    width: 650px;
+    height:400px;
+}
+.lang img{
+    width: 35px;
+}
+#footer,
+.contact{
+    position: relative;
+    top: 900px;
+}
+#footer img{
+    position: relative;
+    top: -50px;
+    max-height: 100px!important;
+}
+.footer-contact1{
+    position: relative; top: -50px;
+}
+
 .nav-menu .drop-down:hover > ul {
   opacity: 1;
   top: 100%;
@@ -419,6 +442,15 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   #hero .hero-img img {
     width: 70%;
   }
+    #footer,
+    .contact{
+        position: relative;
+        top: -80px;
+    }
+    iframe{
+        width: 300px;
+        height: 350px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -567,6 +599,7 @@ section {
   .about .about-img img {
     max-width: 70%;
   }
+
 }
 
 @media (max-width: 767px) {
@@ -1358,9 +1391,9 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #ef7f4d;
-  color: #fff;
-  text-decoration: none;
+  /*background: #ef7f4d;*/
+  /*color: #fff;*/
+  /*text-decoration: none;*/
 }
 
 #footer .copyright {
@@ -1399,26 +1432,4 @@ section {
     text-align-last: center;
     padding: 3px 0;
   }
-}
-
-
-.img2
-{
-    width: 650px;
-    height:400px;
-}
-.lang img{
-    width: 35px;
-}
-.contact ,#footer{
-    position: relative;
-    top: 900px;
-}
-#footer img{
-    position: relative;
-    top: -50px;
-    max-height: 100px!important;
-}
-.footer-contact1{
-    position: relative; top: -50px;
 }

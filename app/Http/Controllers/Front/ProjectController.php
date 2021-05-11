@@ -49,9 +49,9 @@ class ProjectController extends Controller
          }
     }
 
-    public function categoryProject($id){
+    public function categoryProject(Request $request, $id){
 
-        $projects = Project::where('category_id', $id)->paginate(6);
+        $projects = Project::where('category_id', $id)->paginate($request->total);
 
         $data = ProjectResource::collection($projects)->response()->getData(true);
         try

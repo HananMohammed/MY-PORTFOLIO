@@ -13150,7 +13150,8 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         subject: '',
         message: ''
-      }
+      },
+      projects: ''
     };
   },
   methods: {
@@ -13380,7 +13381,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 6:
-                _this4.callApi('get', _this4.projects.meta.path + '?page=' + page).then(function (response) {
+                _this4.callApi('get', _this4.projects.meta.path + '?page=' + page + "&total=".concat(_this4.total)).then(function (response) {
                   if (response.status = 200) {
                     _this4.projects = response.data.data;
                   }
@@ -13402,11 +13403,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var page = this.projects.meta.current_page;
 
       if (page > 1) {
-        if (this.projects.meta.path == window.location.href + '/projects') {
+        if (this.projects.meta.path == window.location.href + '/projects?' + "total=".concat(this.total)) {
           this.getAllProjects(page - 1);
         } else {
           page -= 1;
-          this.callApi('get', this.projects.meta.path + '?page=' + page).then(function (response) {
+          this.callApi('get', this.projects.meta.path + '?page=' + page + "&total=".concat(this.total)).then(function (response) {
             if (response.status = 200) {
               _this5.projects = response.data.data;
             }
@@ -13422,11 +13423,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var page = this.projects.meta.current_page;
 
       if (page < this.projects.meta.last_page) {
-        if (this.projects.meta.path == window.location.href + '/projects') {
+        if (this.projects.meta.path == window.location.href + '/projects?' + "total=".concat(this.total)) {
           this.getAllProjects(page + 1);
         } else {
           page += 1;
-          this.callApi('get', this.projects.meta.path + '?page=' + page).then(function (response) {
+          this.callApi('get', this.projects.meta.path + '?page=' + page + "&total=".concat(this.total)).then(function (response) {
             if (response.status = 200) {
               _this6.projects = response.data.data;
             }
@@ -18452,7 +18453,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nnav[data-v-178baf0e]{\n    position: relative;\n    left: 35%;\n}\n.pagination[data-v-178baf0e] {\n    background: #fff;\n    display: flex;\n    padding: 5px 10px;\n    border-radius: 50px;\n    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n}\n.pagination li[data-v-178baf0e] {\n    list-style: none;\n    line-height: 50px;\n    margin: 0 5px;\n    cursor: pointer;\n}\n.pagination li.pageNumber[data-v-178baf0e] {\n    position: relative;\n    top: 5px;\n    width: 40px;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n}\n.pagination li a[data-v-178baf0e] {\n    display: block;\n    text-decoration: none;\n    /*color: #383838;*/\n    color:#eb5d1e;\n    font-weight: 600;\n    border-radius: 50%;\n}\n.pagination li.pageNumber:hover a[data-v-178baf0e],\n.pagination li.pageNumber.active a[data-v-178baf0e] {\n    /*background: #383838;*/\n    background: #eb5d1e;\n    color: #fff;\n}\n.pagination li[data-v-178baf0e]:first-child,\n.pagination li[data-v-178baf0e]:last-child{\n    margin-right: 10px;\n    font-weight: 700;\n    font-size: 18px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nnav[data-v-178baf0e]{\n    position: fixed;\n    left: 35%;\n    top: 850px;\n}\n.pagination[data-v-178baf0e] {\n    background: #fff;\n    display: flex;\n    padding: 5px 10px;\n    border-radius: 50px;\n    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n}\n.pagination li[data-v-178baf0e] {\n    list-style: none;\n    line-height: 50px;\n    margin: 0 5px;\n    cursor: pointer;\n}\n.pagination li.pageNumber[data-v-178baf0e] {\n    position: relative;\n    top: 5px;\n    width: 40px;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n}\n.pagination li a[data-v-178baf0e] {\n    display: block;\n    text-decoration: none;\n    /*color: #383838;*/\n    color:#eb5d1e;\n    font-weight: 600;\n    border-radius: 50%;\n}\n.pagination li.pageNumber:hover a[data-v-178baf0e],\n.pagination li.pageNumber.active a[data-v-178baf0e] {\n    /*background: #383838;*/\n    background: #eb5d1e;\n    color: #fff;\n}\n.pagination li[data-v-178baf0e]:first-child,\n.pagination li[data-v-178baf0e]:last-child{\n    margin-right: 10px;\n    font-weight: 700;\n    font-size: 18px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
