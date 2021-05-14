@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300">
                     <h4>@lang('front.our-services')</h4>
-                    <ul>
+                    <ul class="footer-menu">
                         @foreach($data["services"] as $service)
                         <li><i class="bx bx-chevron-right"></i> <a href="#services">{{ $service->title }}</a></li>
                         @endforeach

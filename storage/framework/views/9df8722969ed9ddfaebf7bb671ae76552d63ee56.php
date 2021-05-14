@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300">
                     <h4><?php echo app('translator')->get('front.our-services'); ?></h4>
-                    <ul>
+                    <ul class="footer-menu">
                         <?php $__currentLoopData = $data["services"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li><i class="bx bx-chevron-right"></i> <a href="#services"><?php echo e($service->title); ?></a></li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

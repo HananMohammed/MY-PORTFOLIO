@@ -13138,6 +13138,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'contact-form',
+  props: ['name', 'mail', 'sub', 'msg', 'send'],
   data: function data() {
     return {
       username: '',
@@ -13242,7 +13243,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'projects-component',
-  props: ['recentProjects', 'checkoutProjects', 'all'],
+  props: ['recentProjects', 'checkoutProjects', 'all', 'lang'],
   data: function data() {
     return {
       location: '/MY-PORTFOLIO/public/storage/uploads/',
@@ -13497,13 +13498,9 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "form-group col-md-6"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_4 = {
   "for": "name"
-}, "Your Name", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_5 = {
   "class": "validate",
   style: {
@@ -13513,13 +13510,9 @@ var _hoisted_5 = {
 var _hoisted_6 = {
   "class": "form-group col-md-6"
 };
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_7 = {
   "for": "name"
-}, "Your Email", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_8 = {
   "class": "validate",
   style: {
@@ -13529,13 +13522,9 @@ var _hoisted_8 = {
 var _hoisted_9 = {
   "class": "form-group"
 };
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "for": "name"
-}, "Subject", -1
-/* HOISTED */
-);
-
+var _hoisted_10 = {
+  "for": "subject"
+};
 var _hoisted_11 = {
   "class": "validate",
   style: {
@@ -13545,13 +13534,9 @@ var _hoisted_11 = {
 var _hoisted_12 = {
   "class": "form-group"
 };
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "for": "name"
-}, "Message", -1
-/* HOISTED */
-);
-
+var _hoisted_13 = {
+  "for": "msg"
+};
 var _hoisted_14 = {
   "class": "validate",
   style: {
@@ -13581,10 +13566,10 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Send Message");
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.name), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "text",
     name: "username",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -13598,7 +13583,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.username]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.username), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.mail), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "email",
     "class": "form-control",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
@@ -13612,7 +13599,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.email), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.sub), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "text",
     "class": "form-control",
     name: "subject",
@@ -13626,12 +13615,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.subject]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.subject), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.msg), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {
     "class": "form-control",
     name: "message",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.message = $event;
     }),
+    id: "msg",
     rows: "10",
     "data-rule": "required",
     "data-msg": "Please write something for us"
@@ -13639,12 +13631,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.message]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.message), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <div class=\"mb-3\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <div class=\"loading\" v-if=\"loading\"></div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     type: "submit",
     onClick: _cache[5] || (_cache[5] = function () {
       return $options.sendMessage && $options.sendMessage.apply($options, arguments);
     })
-  }, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_16, [_hoisted_17, _hoisted_18])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_19])])]);
+  }, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_16, [_hoisted_17, _hoisted_18])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.send), 1
+  /* TEXT */
+  )])])]);
 }
 
 /***/ }),
@@ -13714,14 +13708,11 @@ var _hoisted_11 = {
   "class": "portfolio-info"
 };
 var _hoisted_12 = {
-  "aria-label": "Page navigation example"
-};
-var _hoisted_13 = {
   key: 0,
   "class": "pagination"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
   "class": "prev",
   tabindex: "-1",
   "aria-disabled": "true"
@@ -13731,12 +13722,12 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_14 = {
   key: 0,
   "class": "sr-only"
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
   "class": "next",
   tabindex: "-1",
   "aria-disabled": "true"
@@ -13810,12 +13801,15 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["innerHTML"])])]))]);
   }), 128
   /* KEYED_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("nav", _hoisted_12, [$data.projects.meta && $data.projects.meta.total > 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("nav", {
+    "aria-label": "Page navigation example",
+    style: $props.lang == 'ar' ? 'direction: ltr;' : ''
+  }, [$data.projects.meta && $data.projects.meta.total > 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
     "class": $data.projects.meta.current_page == 1 ? 'disabled' : '',
     onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.previous && $options.previous.apply($options, arguments);
     }, ["prevent"]))
-  }, [_hoisted_14], 2
+  }, [_hoisted_13], 2
   /* CLASS */
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.projects.meta.last_page, function (item) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
@@ -13826,7 +13820,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       }, ["prevent"])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item), 1
     /* TEXT */
-    ), $data.projects.meta.current_page == item ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_15, "(current)")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 10
+    ), $data.projects.meta.current_page == item ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_14, "(current)")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 10
     /* CLASS, PROPS */
     , ["aria-current", "onClick"]);
   }), 256
@@ -13836,9 +13830,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onClick: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.next && $options.next.apply($options, arguments);
     }, ["prevent"]))
-  }, [_hoisted_16], 2
+  }, [_hoisted_15], 2
   /* CLASS */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Portfolio Section ")], 2112
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 4
+  /* STYLE */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Portfolio Section ")], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 });
@@ -18453,7 +18449,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nnav[data-v-178baf0e]{\n    position: fixed;\n    left: 35%;\n    top: 850px;\n}\n.pagination[data-v-178baf0e] {\n    background: #fff;\n    display: flex;\n    padding: 5px 10px;\n    border-radius: 50px;\n    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n}\n.pagination li[data-v-178baf0e] {\n    list-style: none;\n    line-height: 50px;\n    margin: 0 5px;\n    cursor: pointer;\n}\n.pagination li.pageNumber[data-v-178baf0e] {\n    position: relative;\n    top: 5px;\n    width: 40px;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n}\n.pagination li a[data-v-178baf0e] {\n    display: block;\n    text-decoration: none;\n    /*color: #383838;*/\n    color:#eb5d1e;\n    font-weight: 600;\n    border-radius: 50%;\n}\n.pagination li.pageNumber:hover a[data-v-178baf0e],\n.pagination li.pageNumber.active a[data-v-178baf0e] {\n    /*background: #383838;*/\n    background: #eb5d1e;\n    color: #fff;\n}\n.pagination li[data-v-178baf0e]:first-child,\n.pagination li[data-v-178baf0e]:last-child{\n    margin-right: 10px;\n    font-weight: 700;\n    font-size: 18px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nnav[data-v-178baf0e]{\n    position: fixed;\n    left: 35%;\n    top: 850px;\n}\n.pagination[data-v-178baf0e] {\n    background: #fff;\n    display: flex;\n    padding: 5px 10px;\n    border-radius: 50px;\n    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n}\n.pagination li[data-v-178baf0e] {\n    list-style: none;\n    line-height: 50px;\n    margin: 0 5px;\n    cursor: pointer;\n}\n.pagination li.pageNumber[data-v-178baf0e] {\n    position: relative;\n    top: 5px;\n    width: 40px;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n}\n.pagination li a[data-v-178baf0e] {\n    display: block;\n    text-decoration: none;\n    /*color: #383838;*/\n    color:#eb5d1e;\n    font-weight: 600;\n    border-radius: 50%;\n}\n.pagination li.pageNumber:hover a[data-v-178baf0e],\n.pagination li.pageNumber.active a[data-v-178baf0e] {\n    /*background: #383838;*/\n    background: #eb5d1e;\n    color: #fff;\n}\n.pagination li[data-v-178baf0e]:first-child,\n.pagination li[data-v-178baf0e]:last-child{\n    margin-right: 10px;\n    font-weight: 700;\n    font-size: 18px;\n}\n@media (max-width: 991px) {\nnav[data-v-178baf0e]{\n        /*position: fixed;*/\n        left: 0;\n        top: 2600px;\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

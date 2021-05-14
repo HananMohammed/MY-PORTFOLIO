@@ -46,7 +46,7 @@
                                 </span>
                             @foreach($data["emails"] as $email)
                                 <span>
-                                    <a href="mailto:{{$email->email}}" style="font-size:13px;font-weight: 600;color: #7a6960;">{{ $email->email }}</a>
+                                    <a href="mailto:{{$email->email}}" style="font-size:12px;font-weight: 600;color: #7a6960;">{{ $email->email }}</a>
                                 </span>
                              @endforeach
                             </li>
@@ -65,6 +65,7 @@
                                     </span>
                                 @foreach($data["phones"] as $phone)
                                 <span><a href="tel:{{$phone->phone}}"  @if($loop->index !== 0 ) class = "contact-phone"@endif style="font-size:13px;font-weight: 600;color: #7a6960;">{{ $phone->phone }}</a></span>
+                                <br>
                                 @endforeach
                             </li>
                         </ul>

@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation example" :style="lang == 'ar' ? 'direction: ltr;' : ''">
                     <ul class="pagination" v-if="projects.meta && projects.meta.total>6">
                         <li
                             :class=" projects.meta.current_page == 1 ? 'disabled' : '' "
@@ -78,7 +78,8 @@
      props:[
         'recentProjects',
         'checkoutProjects',
-        'all'
+        'all',
+         'lang'
     ],
     data() {
         return {
@@ -232,6 +233,7 @@ nav{
     left: 35%;
     top: 850px;
 }
+
 .pagination {
     background: #fff;
     display: flex;
@@ -278,4 +280,12 @@ nav{
     font-weight: 700;
     font-size: 18px;
 }
+@media (max-width: 991px) {
+    nav{
+        /*position: fixed;*/
+        left: 0;
+        top: 2600px;
+    }
+}
+
 </style>

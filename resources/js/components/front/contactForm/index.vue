@@ -5,34 +5,31 @@
         class="php-email-form">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="name">Your Name</label>
+                <label for="name">{{name}}</label>
                 <input type="text" name="username" v-model="username" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validate" style="display: block;"> {{ errors.username }} </div>
             </div>
             <div class="form-group col-md-6">
-                <label for="name">Your Email</label>
+                <label for="name">{{mail}}</label>
                 <input type="email" class="form-control" v-model="email" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validate" style="display: block;">{{ errors.email }}</div>
             </div>
         </div>
         <div class="form-group">
-            <label for="name">Subject</label>
+            <label for="subject">{{sub}}</label>
             <input type="text" class="form-control" name="subject" v-model="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
             <div class="validate" style="display: block;">{{ errors.subject }}</div>
         </div>
         <div class="form-group">
-            <label for="name">Message</label>
-            <textarea class="form-control" name="message" v-model="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+            <label for="msg">{{msg}}</label>
+            <textarea class="form-control" name="message" v-model="message" id="msg" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
             <div class="validate" style="display: block;">{{ errors.message }}</div>
         </div>
-<!--        <div class="mb-3">-->
-<!--            <div class="loading" v-if="loading"></div>-->
-<!--        </div>-->
         <div class="text-center"><button type="submit" @click="sendMessage">
             <span class="load-msg" v-if="loading">
                  <i class="fa fa-spinner fa-spin fa-3x fa-fw" style="font-size:20px"></i><span class="sr-only">Loading...</span>
             </span>
-            Send Message</button></div>
+            {{send}}</button></div>
     </form>
 </template>
 <script lang='ts' >
@@ -41,6 +38,13 @@ import { createToast } from 'mosha-vue-toastify';
 import 'mosha-vue-toastify/dist/style.css'
 export default {
     name:'contact-form',
+    props:[
+        'name',
+        'mail',
+        'sub',
+        'msg',
+        'send',
+    ],
     data(){
         return{
             username:'',

@@ -36,8 +36,12 @@ return[
     "web" => "Web",
     "app" => "App",
     "ui" => "UI",
-    "specialized"=>" I'm specialized as a fullstack developer and solving all web and backend development problems"
-
+    "specialized"=>" I'm specialized as a fullstack developer and solving all web and backend development problems",
+    "name" => "Your Name",
+    "mail" => "Your Email",
+    "subject" => "Subject",
+    "msg" => "Message",
+    "send-msg" => "Send Message",
 
 
 

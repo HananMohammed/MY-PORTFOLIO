@@ -23,11 +23,13 @@
     <link href="<?php echo e(asset_public('front/assets/vendor/venobox/venobox.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset_public('front/assets/vendor/owl.carousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset_public('front/assets/vendor/aos/aos.css')); ?>" rel="stylesheet">
-    <!-- Template Main CSS File -->
+    <?php if(app()->getLocale()=='ar'): ?>
+        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+    <?php endif; ?>
     <link href="<?php echo e(asset_public('front/assets/css/style.css')); ?>" rel="stylesheet">
     <?php echo $__env->yieldContent('style'); ?>
     <?php if(app()->getLocale()=='ar'): ?>
-        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+        <link href="<?php echo e(asset_public('front/assets/css/style_ar.css')); ?>" rel="stylesheet">
     <?php endif; ?>
     <!-- whatsapp Chat Section-->
     <link rel="stylesheet" href="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.css">

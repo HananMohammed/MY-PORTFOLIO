@@ -41,7 +41,13 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" id="contact-form" data-aos="fade-up" data-aos-delay="200">
-                <contact-form></contact-form>
+                <contact-form
+                    :name = "'<?php echo app('translator')->get('front.name'); ?>'"
+                    :mail = "'<?php echo app('translator')->get('front.mail'); ?>'"
+                    :sub = "'<?php echo app('translator')->get('front.subject'); ?>'"
+                    :msg = "'<?php echo app('translator')->get('front.msg'); ?>'"
+                    :send = "'<?php echo app('translator')->get('front.send-msg'); ?>'"
+                ></contact-form>
             </div>
 
         </div>

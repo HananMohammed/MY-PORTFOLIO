@@ -28,7 +28,9 @@
     @endif
     <link href="{{asset_public('front/assets/css/style.css')}}" rel="stylesheet">
     @yield('style')
-
+    @if(app()->getLocale()=='ar')
+        <link href="{{asset_public('front/assets/css/style_ar.css')}}" rel="stylesheet">
+    @endif
     <!-- whatsapp Chat Section-->
     <link rel="stylesheet" href="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.css">
     <!--whatsapp Chat Section-->

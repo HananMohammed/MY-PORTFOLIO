@@ -1,0 +1,13 @@
+#header{
+    direction: ltr;
+}
+#header .logo{
+    position: relative;
+    left: -25%;
+}
+.contact-phone{
+    margin-right:30px!important;
+}
+.contact .info i{
+    float: right;
+}

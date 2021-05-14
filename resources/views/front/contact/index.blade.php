@@ -41,7 +41,13 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" id="contact-form" data-aos="fade-up" data-aos-delay="200">
-                <contact-form></contact-form>
+                <contact-form
+                    :name = "'@lang('front.name')'"
+                    :mail = "'@lang('front.mail')'"
+                    :sub = "'@lang('front.subject')'"
+                    :msg = "'@lang('front.msg')'"
+                    :send = "'@lang('front.send-msg')'"
+                ></contact-form>
             </div>
 
         </div>
