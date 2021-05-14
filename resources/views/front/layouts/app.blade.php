@@ -38,6 +38,16 @@
 <body>
 <!--Page main section start-->
 @include('front.layouts.includes.navbar')
+<div id="lightModeToggle">
+    <div class="lightModeRotate">
+        <div class="moon">
+            <img src="{{asset_public('front/assets/images/moon.svg')}}" class="img-fluid" alt="moon">
+        </div>
+        <div class="sun">
+            <img src="{{asset_public('front/assets/images/sun.svg')}}" class="img-fluid" alt="sun">
+        </div>
+    </div>
+</div>
 @yield('content')
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 <div id="WAButton" style="z-index: 30;right: 60px!important;"></div>

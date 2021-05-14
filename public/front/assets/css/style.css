@@ -1469,3 +1469,108 @@ section {
     border-radius:10px;
     box-shadow:inset 2px 2px 2px hsla(0,0%,100%,.25),inset -2px -2px 2px rgba(0,0,0,.25)
 }
+
+/*Button Dark mood Switch*/
+#lightModeToggle {
+    position: fixed;
+    top: 30%;
+    left: -15px;
+    width: 35px;
+    z-index: 9;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: rotate(
+        90deg
+    );
+    -webkit-transform: rotate(
+        90deg
+    );
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    box-shadow: 0 0 15px var(--box-shadow-color1);
+    animation: lightMode 2s infinite cubic-bezier(0, 0, 0.50, 0.50);
+    -webkit-animation: lightMode 2s infinite cubic-bezier(0, 0, 0.50, 0.50);
+}
+#lightModeToggle .lightModeRotate
+{
+    transition: all ease-in-out 0.4s;
+    -webkit-transition: all ease-in-out 0.4s;
+    -moz-transition: all ease-in-out 0.4s;
+    -ms-transition: all ease-in-out 0.4s;
+    -o-transition: all ease-in-out 0.4s;
+}
+#lightModeToggle div.moon , #lightModeToggle div.sun
+{
+    padding: 15%;
+    margin: 5%;
+    transition: all ease-in-out 0.2s;
+    -webkit-transition: all ease-in-out 0.2s;
+    -moz-transition: all ease-in-out 0.2s;
+    -ms-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
+}
+#lightModeToggle img {
+    animation: lightModeIconRotate 15s infinite cubic-bezier(0, 0, 0.50, 0.50);
+    -webkit-animation: lightModeIconRotate 15s infinite cubic-bezier(0, 0, 0.50, 0.50);
+}
+@keyframes lightModeIconRotate {
+    0%
+    {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
+    75%
+    {
+        transform: rotate(270deg);
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+#lightModeToggle.disabled .lightModeRotate
+{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+#lightModeToggle.enabled .lightModeRotate
+{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+#lightModeToggle.enabled div.moon:nth-child(1) ,#lightModeToggle.disabled  div.sun:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+}
