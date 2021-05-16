@@ -222,47 +222,43 @@
 })(jQuery);
 
 //light mode with local storage
-let lightMode = localStorage.getItem('lightMode');
-const lightModeToggle = document.querySelector('#lightModeToggle');
+let darkMode = localStorage.getItem('darkMode');
+const darkModeToggle = document.querySelector('#lightModeToggle');
 
-const enableLightMode = () =>{
-// add the class lightmode to the body
-    $('body').addClass('lightMode');
+const enableDarkMode = () =>{
+    // add the class darkmode to the body
+    $('body').addClass('darkMode');
     $('#lightModeToggle').removeClass('disabled');
     $('#lightModeToggle').addClass('enabled');
-    $('nav').removeClass('navbar-dark');
-    $('nav').addClass('navbar-light');
-//update lightmode at the local storage
-    localStorage.setItem('lightMode', 'enabled');
+    $('header').addClass('header-dark');
+    //update darkmode at the local storage
+    localStorage.setItem('darkMode', 'enabled');
 
 }
-
-const disableLightMode = () =>{
+const disableDarkMode = () =>{
     // remove the class lightmode to the body
-    $('body').removeClass('lightMode');
+    $('body').removeClass('darkMode');
     $('#lightModeToggle').removeClass('enabled');
     $('#lightModeToggle').addClass('disabled');
-    $('nav').addClass('navbar-dark');
-    $('nav').removeClass('navbar-light');
+    $('header').removeClass('header-dark');
     //update lightmode at the local storage
-    localStorage.setItem('lightMode', 'disabled');
+    localStorage.setItem('darkMode', 'disabled');
 }
 
 //for remembering what was saved last time
-if ( lightMode === 'enabled')
-    enableLightMode();
+if ( darkMode === 'enabled')
+    enableDarkMode();
 
-
-lightModeToggle.addEventListener("click", () => {
-    lightMode = localStorage.getItem('lightMode');
-    if (lightMode !== 'enabled')
+darkModeToggle.addEventListener("click", () => {
+    darkMode = localStorage.getItem('darkMode');
+    if (darkMode !== 'enabled')
     {
-        enableLightMode();
+        enableDarkMode();
         $('body').addClass('time');
     }
     else
     {
-        disableLightMode();
+        disableDarkMode();
         $('body').removeClass('time');
     }
 });

@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex">
 
         <div class="logo mr-auto">
-            <a href="{{route('front.homepage')}}">  <img src="{{asset_public('front/assets/images/hanan.png')}}" ></a>
+            <a href="{{route('front.homepage')}}">  <img src="{{asset_public('storage/uploads/'.$data["setting"][0]->image)}}" ></a>
 
         </div>
 
