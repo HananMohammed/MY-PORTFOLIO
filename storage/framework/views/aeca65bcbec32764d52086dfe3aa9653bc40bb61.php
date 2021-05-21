@@ -27,7 +27,7 @@
                                     </svg>
                                 </span>
                                 <?php $__currentLoopData = $data["addresses"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $address): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <span style="font-size:13px;font-weight: 600;color: #7a6960;"><?php echo e($address->address); ?></span>
+                                <span class="add-span"><?php echo e($address->address); ?></span>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </li>
 
@@ -46,7 +46,7 @@
                                 </span>
                             <?php $__currentLoopData = $data["emails"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $email): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <span>
-                                    <a href="mailto:<?php echo e($email->email); ?>" style="font-size:12px;font-weight: 600;color: #7a6960;"><?php echo e($email->email); ?></a>
+                                    <a href="mailto:<?php echo e($email->email); ?>"  class="add-span" style="font-size:12px;"><?php echo e($email->email); ?></a>
                                 </span>
                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </li>
@@ -64,7 +64,7 @@
                                         </svg>
                                     </span>
                                 <?php $__currentLoopData = $data["phones"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $phone): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <span><a href="tel:<?php echo e($phone->phone); ?>"  <?php if($loop->index !== 0 ): ?> class = "contact-phone"<?php endif; ?> style="font-size:13px;font-weight: 600;color: #7a6960;"><?php echo e($phone->phone); ?></a></span>
+                                <span><a href="tel:<?php echo e($phone->phone); ?>"  <?php if($loop->index !== 0 ): ?> class = "contact-phone add-span"<?php endif; ?> class="add-span"><?php echo e($phone->phone); ?></a></span>
                                 <br>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </li>

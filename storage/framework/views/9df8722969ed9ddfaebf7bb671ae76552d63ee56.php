@@ -25,14 +25,14 @@
                             <label for="#addresses"><strong ><?php echo app('translator')->get('front.address'); ?></strong></label>
                             <ul style="list-style-type: none;" id="addresses ">
                                 <?php $__currentLoopData = $data["addresses"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $address): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><?php echo e($address->address); ?></li>
+                                    <li ><?php echo e($address->address); ?></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>
                     <div  class="footer-contact1">
 
                         <label for="#phones"><strong><?php echo app('translator')->get('front.phone'); ?></strong></label>
-                        <ul style="list-style-type: none;" id="phones">
+                        <ul id="phones">
                             <?php $__currentLoopData = $data["phones"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $phone): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li>
                                     <a href="tel:<?php echo e($phone->phone); ?>" style="font-size:13px;color: #212529;"><?php echo e($phone->phone); ?></a>

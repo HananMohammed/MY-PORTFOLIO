@@ -27,7 +27,7 @@
                                     </svg>
                                 </span>
                                 @foreach($data["addresses"] as $address)
-                                <span style="font-size:13px;font-weight: 600;color: #7a6960;">{{ $address->address }}</span>
+                                <span class="add-span">{{ $address->address }}</span>
                                 @endforeach
                             </li>
 
@@ -46,7 +46,7 @@
                                 </span>
                             @foreach($data["emails"] as $email)
                                 <span>
-                                    <a href="mailto:{{$email->email}}" style="font-size:12px;font-weight: 600;color: #7a6960;">{{ $email->email }}</a>
+                                    <a href="mailto:{{$email->email}}"  class="add-span" style="font-size:12px;">{{ $email->email }}</a>
                                 </span>
                              @endforeach
                             </li>
@@ -64,7 +64,7 @@
                                         </svg>
                                     </span>
                                 @foreach($data["phones"] as $phone)
-                                <span><a href="tel:{{$phone->phone}}"  @if($loop->index !== 0 ) class = "contact-phone"@endif style="font-size:13px;font-weight: 600;color: #7a6960;">{{ $phone->phone }}</a></span>
+                                <span><a href="tel:{{$phone->phone}}"  @if($loop->index !== 0 ) class = "contact-phone add-span"@endif class="add-span">{{ $phone->phone }}</a></span>
                                 <br>
                                 @endforeach
                             </li>

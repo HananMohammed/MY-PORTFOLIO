@@ -52,6 +52,9 @@
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 <div id="WAButton" style="z-index: 30;right: 60px!important;"></div>
 <?php echo $__env->make('front.layouts.includes.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<a href="https://api.whatsapp.com/send?phone=<?php echo e($data["setting"][0]->whatsapp); ?>" class="btn-whatsapp-pulse" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 <!-- Vendor JS Files -->
 <script src="<?php echo e(asset_public('front/assets/vendor/jquery/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
@@ -63,25 +66,25 @@
 <script src="<?php echo e(asset_public('front/assets/vendor/aos/aos.js')); ?>"></script>
 <script src="<?php echo e(asset_public('front/assets/js/main.js')); ?>"></script>
 <script src="<?php echo e(asset_public('js/app.js')); ?>"></script>
- <!-- whatsapp Chat Section-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
-<!--whatsapp Chat Section-->
-<script type="text/javascript">
-    $(function () {
-        $('#WAButton').floatingWhatsApp({
-            phone: '<?php echo e($data["setting"][0]->whatsapp); ?>', //WhatsApp Business phone number
-            headerTitle: 'Chat with us on WhatsApp!', //Popup Title
-            popupMessage: 'Hello, how can we help you?', //Popup Message
-            showPopup: true, //Enables popup display
-            buttonImage: '<img src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg" />', //Button Image
-            //headerColor: 'crimson', //Custom header color
-            //backgroundColor: 'crimson', //Custom background button color
-            position: "right" //Position: left | right
 
-        });
-    });
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php echo $__env->yieldContent('scripts'); ?>
 <!--main js file end-->
 </body>

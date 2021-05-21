@@ -25,14 +25,14 @@
                             <label for="#addresses"><strong >@lang('front.address')</strong></label>
                             <ul style="list-style-type: none;" id="addresses ">
                                 @foreach($data["addresses"] as $address)
-                                    <li>{{$address->address}}</li>
+                                    <li >{{$address->address}}</li>
                                 @endforeach
                             </ul>
                         </div>
                     <div  class="footer-contact1">
 
                         <label for="#phones"><strong>@lang('front.phone')</strong></label>
-                        <ul style="list-style-type: none;" id="phones">
+                        <ul id="phones">
                             @foreach($data["phones"] as $phone)
                                 <li>
                                     <a href="tel:{{$phone->phone}}" style="font-size:13px;color: #212529;">{{$phone->phone}}</a>
