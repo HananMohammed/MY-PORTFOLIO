@@ -1,8 +1,14 @@
-@extends('admin.layouts.app')
+<?php $__env->startSection('title', 'Social Media '); ?>
 
-@section('title', 'Emails')
-
-@section('content')
+<?php $__env->startSection('header-css'); ?>
+<style>
+    td svg , #selectedIcon svg{
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -11,15 +17,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.email')</h5>
+                    <h5 class="text-dark font-weight-bold my-1 mr-5"><?php echo app('translator')->get('admin.social-media'); ?></h5>
                     <!--end::Page Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="{{route('admin.adminPanel')}}" class="text-muted">@lang('admin.adminPanel')</a>
+                            <a href="<?php echo e(route('admin.adminPanel')); ?>" class="text-muted"><?php echo app('translator')->get('admin.adminPanel'); ?></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{route('admin.emails.index')}}" class="text-muted">@lang('admin.email')</a>
+                            <a href="<?php echo e(route('admin.addresses.index')); ?>" class="text-muted"><?php echo app('translator')->get('admin.social-media'); ?></a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -30,20 +36,21 @@
         </div>
     </div>
     <!--end::Subheader-->
-    @include('admin.settings.email.form_store')
-    @include('admin.settings.email.form_edit')
+    <?php echo $__env->make('admin.settings.socialMedia.form_store', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('admin.settings.socialMedia.form_edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!--begin::Entry-->
     <div class="d-flex flex-column-fluid mt-5" id="kt_content">
         <!--begin::Container-->
         <div class="container">
-            @if(!empty($errors->any()))
+            <?php if(!empty($errors->any())): ?>
                 <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
                     <div class="alert-icon"><i class="flaticon-warning"></i></div>
                     <div class="alert-text">
                         <ol>
-                            @if($errors->any())
-                                {!! implode('',$errors->all('<li>:message</li>')) !!}
-                            @endif
+                            <?php if($errors->any()): ?>
+                                <?php echo implode('',$errors->all('<li>:message</li>')); ?>
+
+                            <?php endif; ?>
                         </ol>
                     </div>
                     <div class="alert-close">
@@ -52,13 +59,13 @@
                         </button>
                     </div>
                 </div>
-        @endif
+        <?php endif; ?>
 
         <!--begin::Card-->
             <div class="card card-custom gutter-b" style="width: 100%;">
                 <div class="card-header flex-wrap py-3">
                     <div class="card-title">
-                        <h3 class="card-label">@lang('admin.email')</h3>
+                        <h3 class="card-label"><?php echo app('translator')->get('admin.social-media'); ?></h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
@@ -73,11 +80,11 @@
                             </g>
                         </svg>
                         <!--end::Svg Icon-->
-                    </span>@lang('admin.new-section')</a>
+                    </span><?php echo app('translator')->get('admin.new-section'); ?></a>
                         <!--end::Button-->
                     </div>
                 </div>
-                <div class="card-body">
+                  <div class="card-body">
                     <!--begin: Datatable-->
                     <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="row">
@@ -85,30 +92,28 @@
                                 <table class="table table-bordered table-checkable " id="kt_datatable">
                                     <thead>
                                     <tr role="row">
-                                        <th>@lang('dashboard.id')</th>
-                                        <th>@lang('admin.email')</th>
-                                        <th>@lang('admin.receiveContact')</th>
-                                        <th>@lang('admin.created_by')</th>
-                                        <th>@lang('admin.actions')</th>
+                                        <th><?php echo app('translator')->get('dashboard.id'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.social-media-title'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.social-media-icon'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.social-media-link'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.created_by'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.actions'); ?></th>
                                     </tr>
                                     </thead>
-                                    @if(count($emails)>0)
+                                    <?php if(count($socialMedias)>0): ?>
                                         <tbody>
-                                        @foreach($emails as $email)
+                                        <?php $__currentLoopData = $socialMedias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $socialMedia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td>{{$email->id}}</td>
-                                                <td>{{$email->email}}</td>
-                                                @if($email->receive_contacts == 1)
-                                                    <td><a href="javascript:void(0)" class="btn btn-light-success  font-weight-bold mr-2">Yes</a></td>
-                                                @else
-                                                    <td> <a href="javascript:void(0)" class="btn btn-light-danger font-weight-bold mr-2">No</a></td>
-                                                @endif
-                                                <td>{{$email->user()->pluck('name')[0]}}</td>
-                                                <td nowrap="nowrap">{{ $email->id }}</td>
+                                                <td><?php echo e($socialMedia->id); ?></td>
+                                                <td><?php echo e($socialMedia->icon()->pluck('title')[0]); ?></td>
+                                                <td><?php echo $socialMedia->icon()->pluck('icon')[0]; ?></td>
+                                                <td><?php echo e($socialMedia->url); ?></td>
+                                                <td><?php echo e($socialMedia->user()->pluck('name')[0]); ?></td>
+                                                <td nowrap="nowrap"><?php echo e($socialMedia->id); ?></td>
                                             </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
-                                    @endif
+                                    <?php endif; ?>
                                 </table>
                             </div>
                         </div>
@@ -121,13 +126,13 @@
         <!--end::Container-->
     </div>
     <!--end::Entry-->
-@endsection
-@section('scripts')
-    <script src="{{ asset_public('admin/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-    <script src="{{asset_public('admin/assets/js/pages/crud/forms/widgets/bootstrap-timepicker.js')}}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(asset_public('admin/assets/plugins/custom/datatables/datatables.bundle.js')); ?>"></script>
+    <script src="<?php echo e(asset_public('admin/assets/js/pages/crud/forms/widgets/bootstrap-timepicker.js')); ?>"></script>
     <script>
         $("#newsModalEdit").on('show.bs.modal',function(event){
-
+            $("#selectedIcon svg").remove()
             let id = $(event.relatedTarget).data('id')
             $.ajax({
                 url:`${currentLocation}/${id}/edit`,
@@ -137,19 +142,18 @@
                 cache:false,
                 processData:false,
                 data:{
-                    "_token" :"{{csrf_token()}}",
+                    "_token" :"<?php echo e(csrf_token()); ?>",
                     "id": $(this).data("id"),
                 },
                 success :function(data){
-                    let url = "{{url(app()->getLocale().'/admin/emails/'.':id')}}";
+                    let url = "<?php echo e(url(app()->getLocale().'/admin/social-media/'.':id')); ?>";
                     url = url.replace(':id', id);
                     $('#editForm').attr('action',url);
-                    $('#emailEdit').attr('value',data.email);
-                    $('#emailId').attr('value',data.id);
-                    if(data.receive_contacts == 1){
-                        $('#receivedContactsStatusEdit').attr('checked', 'checked');
-                        $('#receivedContactsStatusEdit').attr('value',data.receive_contacts);
-                    }
+                    $('#urlEdit').attr('value',data.data.url);
+                     $('#selectedIcon').append(data.icon[0].icon)
+                    $('#socialId').attr('value',data.data.id);
+                    console.log(data.data.icon_id)
+                    $('#updateIcon').attr('value',data.data.icon_id);
                 },
                 errors:function(data){
                     var errors = data.responseJSON()
@@ -226,7 +230,7 @@
                 </svg>
             </span>
             </a>
-            <a href="${currentLocation}/emails/${data}"class="btn btn-sm btn-clean btn-icon" title="Delete" onclick="event.preventDefault();
+            <a href="${currentLocation}/social-media/${data}"class="btn btn-sm btn-clean btn-icon" title="Delete" onclick="event.preventDefault();
                         document.getElementById('delete-operator-form-${data}').submit();">
                 <span class="svg-icon svg-icon-md">
                     <svg class="delete" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -238,15 +242,15 @@
                     </svg>
                 </span>
                 <form id="delete-operator-form-${data}" action="${currentLocation}/${data}" method="POST" style="display: none;">
-                    @csrf
-                            @method('DELETE')
+                    <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
                             </form>
                         </a>`;
                         },
                     },
                     {
                         targets: 2,
-                        title:'{{__('admin.receiveContact')}}' ,
+                        title:'<?php echo e(__('admin.social-media-icon')); ?>' ,
                         width: '75px',
                         render: function(data, type, full, meta) {
                             var status = {
@@ -264,25 +268,9 @@
 
         });
     </script>
-     @if(session()->has('success'))
-        <script>Swal.fire("Good Job", "{{session()->get('success')}}", "success");</script>
-    @endif
-<script>
-    document.getElementById("receivedContactsStatus").addEventListener("click", function (){
-        if ($("#receivedContactsStatus").is(':checked')){
-            $("#receivedContactsStatus").attr("value",1)
-        }else {
-            $("#receivedContactsStatus").attr("value",0)
-        }
-    })
-</script>
-    <script>
-    document.getElementById("receivedContactsStatusEdit").addEventListener("click", function (){
-        if ($("#receivedContactsStatusEdit").is(':checked')){
-            $("#receivedContactsStatusEdit").attr("value",1)
-        }else {
-            $("#receivedContactsStatusEdit").attr("value","")
-        }
-    })
-</script>
-@endsection
+     <?php if(session()->has('success')): ?>
+        <script>Swal.fire("Good Job", "<?php echo e(session()->get('success')); ?>", "success");</script>
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\MY-PORTFOLIO\resources\views/admin/settings/socialMedia/index.blade.php ENDPATH**/ ?>

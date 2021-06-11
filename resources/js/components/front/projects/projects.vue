@@ -11,7 +11,7 @@
                     <ul id="portfolio-flters">
                         <li
                             data-filter="*"
-                            :class="active? 'filter-active' :''"
+                            :class="active ?'filter-active' :''"
                             v-on:click="active= !active"
                             @click.prevent="getAllProjects"
                         >{{ all }}</li>

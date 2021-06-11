@@ -84,6 +84,10 @@ export default {
                             timeout:5000,
                             showIcon:true
                         });
+                        this.errors.username = '';
+                        this.errors.email = '';
+                        this.errors.subject = '';
+                        this.errors.message = '';
                     } else {
                         this.loading=false;
                         let error = 'something went wrong Kindly Try Again'

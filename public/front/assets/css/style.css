@@ -1663,7 +1663,7 @@ section {
 }
 .darkMode #footer .footer-top .footer-links ul a:hover ,
 .darkMode .nav-menu a:hover,.darkMode .nav-menu .active > a, .darkMode .nav-menu li:hover > a,
-.darkMode .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
+.darkMode .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active, .darkMode .portfolio #portfolio-flters li.filter-active{
     text-decoration: none;
     color: #eb5d1e!important;
 }

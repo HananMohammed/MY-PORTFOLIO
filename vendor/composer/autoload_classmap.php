@@ -65,6 +65,7 @@ return array(
     'App\\Http\\Requests\\Admin\\SocialMediaRequest' => $baseDir . '/app/Http/Requests/Admin/SocialMediaRequest.php',
     'App\\Http\\Requests\\Front\\ContactRequest' => $baseDir . '/app/Http/Requests/Front/ContactRequest.php',
     'App\\Http\\Requests\\Front\\NewsLetterRequest' => $baseDir . '/app/Http/Requests/Front/NewsLetterRequest.php',
+    'App\\Http\\Resources\\CategoryResource' => $baseDir . '/app/Http/Resources/CategoryResource.php',
     'App\\Http\\Resources\\ProjectResource' => $baseDir . '/app/Http/Resources/ProjectResource.php',
     'App\\Interfaces\\PaymentInterface' => $baseDir . '/app/Interfaces/PaymentInterface.php',
     'App\\Mail\\SendMailable' => $baseDir . '/app/Mail/SendMailable.php',

@@ -1,6 +1,7 @@
 <?php
 return [
     'we-coders' => 'Portfolio AdminPanel',
+    'send-at' => 'Send.At',
     'homepage' =>'Homepage',
     'adminPanel' =>'Admin Panel',
     'about' => 'About us',
@@ -145,7 +146,10 @@ return [
     "projects" => "Projects",
     "list-projects" => "List Projects",
     "project-url" => "Project Life URL or Link",
-
+    "inbox-details" => "Inbox Details",
+    "replay" => "Replay Emails",
+    "send" => "Send",
+    "cancel" => "Cancel",
 
 
 

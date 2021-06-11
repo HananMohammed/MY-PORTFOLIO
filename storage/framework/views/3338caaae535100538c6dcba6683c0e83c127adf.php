@@ -97,7 +97,7 @@
                                             <tr>
                                                 <td><?php echo e($email->id); ?></td>
                                                 <td><?php echo e($email->email); ?></td>
-                                                <?php if($email->receive_contacts === 1): ?>
+                                                <?php if($email->receive_contacts == 1): ?>
                                                     <td><a href="javascript:void(0)" class="btn btn-light-success  font-weight-bold mr-2">Yes</a></td>
                                                 <?php else: ?>
                                                     <td> <a href="javascript:void(0)" class="btn btn-light-danger font-weight-bold mr-2">No</a></td>

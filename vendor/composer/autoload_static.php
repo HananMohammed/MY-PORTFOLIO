@@ -655,6 +655,7 @@ class ComposerStaticInitc97feba284867de023902a9a5a866dd4
         'App\\Http\\Requests\\Admin\\SocialMediaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/SocialMediaRequest.php',
         'App\\Http\\Requests\\Front\\ContactRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/ContactRequest.php',
         'App\\Http\\Requests\\Front\\NewsLetterRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/NewsLetterRequest.php',
+        'App\\Http\\Resources\\CategoryResource' => __DIR__ . '/../..' . '/app/Http/Resources/CategoryResource.php',
         'App\\Http\\Resources\\ProjectResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProjectResource.php',
         'App\\Interfaces\\PaymentInterface' => __DIR__ . '/../..' . '/app/Interfaces/PaymentInterface.php',
         'App\\Mail\\SendMailable' => __DIR__ . '/../..' . '/app/Mail/SendMailable.php',

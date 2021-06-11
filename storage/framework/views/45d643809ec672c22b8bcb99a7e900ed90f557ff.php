@@ -1,8 +1,6 @@
-@extends('admin.layouts.app')
+<?php $__env->startSection('title', 'Contacts'); ?>
 
-@section('title', 'Contacts')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -11,15 +9,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('admin.contacts')</h5>
+                    <h5 class="text-dark font-weight-bold my-1 mr-5"><?php echo app('translator')->get('admin.contacts'); ?></h5>
                     <!--end::Page Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="{{route('admin.adminPanel')}}" class="text-muted">@lang('admin.adminPanel')</a>
+                            <a href="<?php echo e(route('admin.adminPanel')); ?>" class="text-muted"><?php echo app('translator')->get('admin.adminPanel'); ?></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{route('admin.contacts.index')}}" class="text-muted">@lang('admin.contacts')</a>
+                            <a href="<?php echo e(route('admin.contacts.index')); ?>" class="text-muted"><?php echo app('translator')->get('admin.contacts'); ?></a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -38,7 +36,7 @@
             <div class="card card-custom gutter-b" style="width: 100%;">
                 <div class="card-header flex-wrap py-3">
                     <div class="card-title">
-                        <h3 class="card-label">@lang('admin.contacts')</h3>
+                        <h3 class="card-label"><?php echo app('translator')->get('admin.contacts'); ?></h3>
                     </div>
                 </div>
                 <div class="card-body">
@@ -49,21 +47,21 @@
                                 <table class="table table-bordered table-checkable " id="kt_datatable">
                                     <thead>
                                     <tr role="row">
-                                        <th>@lang('dashboard.id')</th>
-                                        <th>@lang('admin.username')</th>
-                                        <th>@lang('admin.email')</th>
-                                        <th>@lang('admin.subject')</th>
-                                        <th>@lang('admin.send-at')</th>
-                                        <th>@lang('admin.actions')</th>
+                                        <th><?php echo app('translator')->get('dashboard.id'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.username'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.email'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.subject'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.send-at'); ?></th>
+                                        <th><?php echo app('translator')->get('admin.actions'); ?></th>
                                     </tr>
                                     </thead>
-                                    @if(count($contacts)>0)
+                                    <?php if(count($contacts)>0): ?>
                                         <tbody>
-                                        @foreach($contacts as $contact)
+                                        <?php $__currentLoopData = $contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td>{{ $contact->id }}</td>
+                                                <td><?php echo e($contact->id); ?></td>
                                                 <td>
-                                                    <a href="javascript:void(0)" class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2 replay" id="contactName" data-contactName="{{$contact->id}}" data-toggle="modal" data-target="#replyToContact">
+                                                    <a href="javascript:void(0)" class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2 replay" id="contactName" data-contactName="<?php echo e($contact->id); ?>" data-toggle="modal" data-target="#replyToContact">
                                                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Contact1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                                     <rect x="0" y="0" width="24" height="24"/>
@@ -71,12 +69,13 @@
                                                                     <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3"/>
                                                                 </g>
                                                              </svg><!--end::Svg Icon-->
-                                                        </span>{{ $contact->username }}
+                                                        </span><?php echo e($contact->username); ?>
+
                                                     </a>
 
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0)" class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2 replay" id="contactEmail" data-contactId="{{$contact->id}}"  data-toggle="modal" data-target="#replyToContact">
+                                                    <a href="javascript:void(0)" class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2 replay" id="contactEmail" data-contactId="<?php echo e($contact->id); ?>"  data-toggle="modal" data-target="#replyToContact">
 															<span class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
 																<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg-->
 																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -87,16 +86,17 @@
 																	</g>
 																</svg>
                                                                 <!--end::Svg Icon-->
-															</span>{{ $contact->email }}
+															</span><?php echo e($contact->email); ?>
+
                                                     </a>
                                                 </td>
-                                                <td class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">{{ $contact->subject }}</td>
-                                                <td class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">{{ $contact->created_at }}</td>
-                                                <td nowrap="nowrap" >{{ $contact->id }}</td>
+                                                <td class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"><?php echo e($contact->subject); ?></td>
+                                                <td class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2"><?php echo e($contact->created_at); ?></td>
+                                                <td nowrap="nowrap" ><?php echo e($contact->id); ?></td>
                                             </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
-                                    @endif
+                                    <?php endif; ?>
                                 </table>
                             </div>
                         </div>
@@ -109,9 +109,9 @@
         <!--end::Container-->
     </div>
     <!--end::Entry-->
-@endsection
-@section('scripts')
-    <script src="{{ asset_public('admin/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(asset_public('admin/assets/plugins/custom/datatables/datatables.bundle.js')); ?>"></script>
     <script type="text/javascript">
         $( document ).ready(function() {
 
@@ -188,8 +188,8 @@
                     </svg>
                 </span>
                 <form id="delete-operator-form-${data}" action="${currentLocation}/${data}" method="POST" style="display: none;">
-                    @csrf
-                            @method('DELETE')
+                    <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
                             </form>
                         </a>`;
                         },
@@ -200,8 +200,10 @@
 
         });
     </script>
-    @if(session()->has('success'))
-        <script>Swal.fire("Good Job", "{{session()->get('success')}}", "success");</script>
-    @endif
-@endsection
+    <?php if(session()->has('success')): ?>
+        <script>Swal.fire("Good Job", "<?php echo e(session()->get('success')); ?>", "success");</script>
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\MY-PORTFOLIO\resources\views/admin/contact/index.blade.php ENDPATH**/ ?>
