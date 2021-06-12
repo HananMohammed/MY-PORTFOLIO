@@ -150,6 +150,10 @@ return [
     "replay" => "Replay Emails",
     "send" => "Send",
     "cancel" => "Cancel",
+    "new-email" => "Create Email",
+    "setup" => " Email Setup ",
+    "send-to" => "Send To :",
+    "email-subject" => "Email Subject :",
 
 
 

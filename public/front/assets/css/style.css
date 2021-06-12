@@ -435,6 +435,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
     }
 }
 
+
 @media (max-width: 768px) {
   #hero h1 {
     font-size: 28px;
@@ -456,6 +457,34 @@ h1, h2, h3, h4, h5, h6, .font-primary {
     iframe{
         width: 300px;
         height: 350px;
+    }
+    #header .logo img{
+        max-height: 74px;
+        top: -14px;
+        left: 25px;
+    }
+    .hero-img img , .about-img img {
+        height: 200px!important;
+    }
+    .about h3, #contact h2 {
+        font-size: 25px!important;
+    }
+    .pagination{
+        padding: 3px 5px!important;
+    }
+
+}
+@media (max-width: 731px) {
+    .pagination{
+        padding: 3px 31px!important;
+    }
+}
+@media (max-width: 640px) {
+    .pagination {
+        padding: 3px 5px !important;
+    }
+    .section-title p{
+        font-size:23px!important;
     }
 }
 
@@ -1717,4 +1746,8 @@ body.darkMode{
     color: #fff;
     background-color: #202a3c;
     border: 1px solid #495057
+}
+::selection {
+    color: #FFF;
+    background-color: #f39e7a;
 }

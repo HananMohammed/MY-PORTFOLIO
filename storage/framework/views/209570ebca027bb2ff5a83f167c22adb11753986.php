@@ -6,6 +6,38 @@
             height: 5.5rem;
             width: 5.5rem;
         }
+
+        /*
+         *  STYLE 10
+         */
+
+        #style-10::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+
+        #style-10::-webkit-scrollbar
+        {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        #style-10::-webkit-scrollbar-thumb
+        {
+            background-color: #AAA;
+            border-radius: 10px;
+            background-image: -webkit-linear-gradient(90deg,
+            rgba(0, 0, 0, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(0, 0, 0, .2) 50%,
+            rgba(0, 0, 0, .2) 75%,
+            transparent 75%,
+            transparent)
+        }
+
     </style>
     <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -31,65 +63,26 @@
                                     <ul class="navi navi-hover py-5">
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-drop"></i>
-																		</span>
-                                                <span class="navi-text">New Group</span>
+                                                <span class="navi-icon">
+                                                    <i class="flaticon-delete"></i>
+                                                </span>
+                                                <span class="navi-text">Delete</span>
                                             </a>
                                         </li>
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-list-3"></i>
-																		</span>
-                                                <span class="navi-text">Contacts</span>
+                                                <span class="navi-icon">
+                                                    <i class="flaticon2-reply"></i>
+                                                </span>
+                                                <span class="navi-text">Forward</span>
                                             </a>
                                         </li>
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-rocket-1"></i>
-																		</span>
-                                                <span class="navi-text">Groups</span>
-                                                <span class="navi-link-badge">
-																			<span class="label label-light-primary label-inline font-weight-bold">new</span>
-																		</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-bell-2"></i>
-																		</span>
-                                                <span class="navi-text">Calls</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-gear"></i>
-																		</span>
-                                                <span class="navi-text">Settings</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-separator my-3"></li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-magnifier-tool"></i>
-																		</span>
-                                                <span class="navi-text">Help</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-bell-2"></i>
-																		</span>
-                                                <span class="navi-text">Privacy</span>
-                                                <span class="navi-link-badge">
-																			<span class="label label-light-danger label-rounded font-weight-bold">5</span>
-																		</span>
+                                                <span class="navi-icon">
+                                                    <i class="flaticon2-pen"></i>
+                                                </span>
+                                                <span class="navi-text">Replay all</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -118,10 +111,13 @@
                         </div>
                         <!--end::User-->
                         <!--begin::Nav-->
-                        <div class="navi navi-bold navi-hover navi-active navi-link-rounded">
+                        <div class="navi navi-bold navi-hover navi-active navi-link-rounded" id="style-10" style=" overflow: auto; height: 400px">
                             <?php $__currentLoopData = $contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="navi-item mb-2">
-                                <a href="javascript:void(0)" class="navi-link py-4">
+                                <a href="javascript:void(0)" class="navi-link py-4 emailDetails" data-id="<?php echo e($contact->id); ?>" data-email="<?php echo e($contact->email); ?>">
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="<?php echo e($contact->id); ?>">
+                                        <span></span></label>
                                     <span class="navi-icon mr-2">
                                         <span class="svg-icon">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
@@ -148,13 +144,13 @@
             </div>
             <!--end::Aside-->
             <!--begin::Content-->
-            <div class="flex-row-fluid ml-lg-8">
+            <div class="flex-row-fluid ml-lg-8" >
                 <!--begin::Card-->
                 <div class="card card-custom">
                     <!--begin::Header-->
                     <div class="card-header py-3">
                         <div class="card-title align-items-start flex-column">
-                            <h3 class="card-label font-weight-bolder text-dark">Email Content</h3>
+                            <h3 class="card-label font-weight-bolder text-dark"><?php echo app('translator')->get('admin.new-email'); ?></h3>
                         </div>
                         <div class="card-toolbar">
                             <button type="reset" class="btn btn-success mr-2"><?php echo app('translator')->get('admin.send'); ?></button>
@@ -168,22 +164,22 @@
                             <div class="row">
                                 <label class="col-xl-3"></label>
                                 <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mb-6">Setup Email Notification:</h5>
+                                    <h5 class="font-weight-bold mb-6"><?php echo app('translator')->get('admin.setup'); ?></h5>
                                 </div>
                             </div>
                             <div class="form-group row align-items-center">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">Email Notification</label>
+                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right"><?php echo app('translator')->get('admin.send-to'); ?></label>
                                 <div class="col-lg-9 col-xl-6">
-															<span class="switch switch-sm">
-																<label>
-																	<input type="checkbox" checked="checked" name="email_notification_1">
-																	<span></span>
-																</label>
-															</span>
+                                    <span class="switch switch-sm">
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="email_notification_1">
+                                            <span></span>
+                                        </label>
+                                    </span>
                                 </div>
                             </div>
                             <div class="form-group row align-items-center">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">Send Copy To Personal Email</label>
+                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right"><?php echo app('translator')->get('admin.email-subject'); ?></label>
                                 <div class="col-lg-9 col-xl-6">
 															<span class="switch switch-sm">
 																<label>
@@ -272,6 +268,16 @@
     </div>
     <!--end::Container-->
 </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+<script type="text/javascript">
+    $(document).on("click",".emailDetails", function () {
+        let id = $(this).data('id');
+        let email = $(this).data('email');
+        alert('you clicked on button #' + id + email);
+    });
+
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\MY-PORTFOLIO\resources\views/admin/contact/replay.blade.php ENDPATH**/ ?>
