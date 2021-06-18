@@ -30,3 +30,4 @@ Route::resource('contacts', 'ContactController');
 Route::get('/news-letter', 'NewsLetterController@index')->name('NewsLetter');
 Route::get('abouts/edit','AboutController@edit' )->name('about.edit');
 Route::put('abouts/update','AboutController@update' )->name('about.update');
+Route::post('/contacts/create/ajax-send-contact', 'ContactController@sendNewEmail')->name('ajax-send-contact');

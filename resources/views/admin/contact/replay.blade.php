@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Contacts')
+@section('title', 'Contacts Reply')
 
 @section('header-css')
     <style>
@@ -39,7 +39,16 @@
             transparent 75%,
             transparent)
         }
-
+        input[type=text],input[type=email]{
+            outline: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+        .error{
+            color: #b51717;
+        }
     </style>
     @stop
 @section('content')
@@ -115,8 +124,8 @@
                         <!--begin::Nav-->
                         <div class="navi navi-bold navi-hover navi-active navi-link-rounded" id="style-10" style=" overflow: auto; height: 400px">
                             @foreach($contacts as $contact)
-                            <div class="navi-item mb-2">
-                                <a href="javascript:void(0)" class="navi-link py-4 emailDetails" data-id="{{ $contact->id }}" data-email="{{ $contact->email }}">
+                            <div class="navi-item mb-2"  >
+                                <a href="javascript:void(0)" class="navi-link py-4 emailDetails" data-id="{{ $contact->id }}" data-email="{{ $contact->email }}" data-subject="{{ $contact->subject }}"  role="button" data-toggle="popover" data-trigger="click" title="{{ $contact->subject }}" data-content="{{ $contact->message }}" tabindex="{{$loop->index}}" >
                                     <label class="checkbox">
                                         <input type="checkbox" value="{{ $contact->id }}">
                                         <span></span></label>
@@ -150,109 +159,57 @@
                 <!--begin::Card-->
                 <div class="card card-custom">
                     <!--begin::Header-->
+                    <div class="alert alert-custom alert-light-primary mb-5" role="alert" style="display: none">
+                        <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                        <div class="alert-text"></div>
+                        <div class="alert-close">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                            </button>
+                        </div>
+                    </div>
                     <div class="card-header py-3">
                         <div class="card-title align-items-start flex-column">
                             <h3 class="card-label font-weight-bolder text-dark">@lang('admin.new-email')</h3>
                         </div>
                         <div class="card-toolbar">
-                            <button type="reset" class="btn btn-success mr-2">@lang('admin.send')</button>
-                            <button type="reset" class="btn btn-secondary">@lang('admin.cancel')</button>
+                            <button type="send-email" id="sendEmail" class="btn btn-success mr-2">@lang('admin.send')</button>
+                            <button type="reset" id="resetForm"  class="btn btn-secondary">@lang('admin.cancel')</button>
                         </div>
                     </div>
                     <!--end::Header-->
                     <!--begin::Form-->
-                    <form class="form">
+                    <form class="form" id="ajaxform">
                         <div class="card-body">
                             <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
+                                <div class="col-lg-12">
                                     <h5 class="font-weight-bold mb-6">@lang('admin.setup')</h5>
                                 </div>
                             </div>
                             <div class="form-group row align-items-center">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">@lang('admin.send-to')</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <input class="effect-1" type="text" placeholder="Placeholder Text">
-                                    <span class="focus-border"></span>
+                                <div class="col-lg-12 ">
+                                    <input class="form-control form-control-lg" type="email" placeholder="Email Address" name="email" id="email">
+                                    <span class="error" id="emailError" for="email"></span>
                                 </div>
                             </div>
                             <div class="form-group row align-items-center">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">@lang('admin.email-subject')</label>
-                                <div class="col-lg-9 col-xl-6">
-															<span class="switch switch-sm">
-																<label>
-																	<input type="checkbox" name="email_notification_2">
-																	<span></span>
-																</label>
-															</span>
+                                <div class="col-lg-12">
+                                    <input class="form-control form-control-lg" type="text" placeholder="Subject" name="subject" id="subject">
+                                    <div class="error" id="subjectError" for="subject"></div>
+
                                 </div>
                             </div>
                             <div class="separator separator-dashed my-10"></div>
                             <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mb-6">Activity Related Emails:</h5>
+                                 <div class="col-lg-12">
+                                    <h5 class="font-weight-bold mb-6">@lang('admin.message')</h5>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">When To Email</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <div class="checkbox-list">
-                                        <label class="checkbox">
-                                            <input type="checkbox">
-                                            <span></span>You have new notifications</label>
-                                        <label class="checkbox">
-                                            <input type="checkbox">
-                                            <span></span>You're sent a direct message</label>
-                                        <label class="checkbox">
-                                            <input type="checkbox" checked="checked">
-                                            <span></span>Someone adds you as a connection</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">When To Escalate Emails</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <div class="checkbox-list">
-                                        <label class="checkbox checkbox-primary">
-                                            <input type="checkbox">
-                                            <span></span>Upon new order</label>
-                                        <label class="checkbox checkbox-primary">
-                                            <input type="checkbox">
-                                            <span></span>New membership approval</label>
-                                        <label class="checkbox checkbox-primary">
-                                            <input type="checkbox" checked="checked">
-                                            <span></span>Member registration</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="separator separator-dashed my-10"></div>
-                            <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mb-6">Updates From Keenthemes:</h5>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-lg-3 col-form-label font-weight-bold text-left text-lg-right">Email You With</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <div class="checkbox-list">
-                                        <label class="checkbox">
-                                            <input type="checkbox">
-                                            <span></span>News about Keenthemes products and feature updates</label>
-                                        <label class="checkbox">
-                                            <input type="checkbox">
-                                            <span></span>Tips on getting more out of Keen</label>
-                                        <label class="checkbox">
-                                            <input type="checkbox" checked="checked">
-                                            <span></span>Things you missed since you last logged into Keen</label>
-                                        <label class="checkbox">
-                                            <input type="checkbox" checked="checked">
-                                            <span></span>News about Metronic on partner products and other services</label>
-                                        <label class="checkbox">
-                                            <input type="checkbox" checked="checked">
-                                            <span></span>Tips on Metronic business products</label>
-                                    </div>
+                                <div class="col-lg-12">
+                                      <textarea type="text" id="message" name="message" class="form-control summernote" id="text_en" placeholder="@lang('dashboard.enter-english-text')" >
+                                        {{old('message')}}
+                                    </textarea>
+                                    <div class="error" id="messageError" for="message"></div>
+
                                 </div>
                             </div>
                         </div>
@@ -268,12 +225,72 @@
 </div>
 @endsection
 @section('scripts')
+
+
+<script src="{{ asset_public('admin/assets/js/pages/crud/forms/editors/summernote.js') }}"></script>
+
 <script type="text/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
     $(document).on("click",".emailDetails", function () {
+        event.preventDefault();
         let id = $(this).data('id');
         let email = $(this).data('email');
-        alert('you clicked on button #' + id + email);
+        let subject = $(this).data('subject');
+        let message = $(this).data('message');
+        $(".email").html(email)
+        $(".message").html(message)
+        $(".subject").html(subject)
+
     });
 
+
+    $(document).on("click","#sendEmail", function () {
+        event.preventDefault();
+        let url =  window.location.href +  "/ajax-send-contact";
+        let subject = $("input[name=subject]").val();
+        let email = $("input[name=email]").val();
+        let message = $("textarea[name=message]").val();
+        let _token   = $('meta[name="csrf-token"]').attr('content');
+        let nameMatch = email.match(/^([^@]*)@/);
+        let username = nameMatch ? nameMatch[1] : null;
+        console.log(url)
+        $.ajax({
+            url:url,
+            type:"POST",
+            data:{
+                username: username,
+                subject:subject,
+                email:email,
+                message:message,
+                _token: _token
+            },
+            success:function(response){
+                if(response) {
+                    $(".alert-light-primary").fadeIn(1000).fadeOut(5000);
+                    $('.alert-text').text(response.msg);
+                    $("#ajaxform")[0].reset();
+                    $(".note-editable").html("")
+                }
+            },
+            error:function (error) {
+                let errors = error.responseJSON.errors;
+                $.each(errors, function(key,valueObj){
+                    switch (key) {
+                        case "email":
+                            $("#emailError").html(valueObj)
+                            break;
+                        case "subject":
+                            $("#subjectError").html(valueObj)
+                            break;
+                        case "message":
+                            $("#messageError").html(valueObj)
+                            break;
+                    }
+                });
+             },
+        });
+    });
 </script>
 @stop
