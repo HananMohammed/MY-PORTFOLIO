@@ -10,5 +10,10 @@ class Contact extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $fillable = ["username","message","email","subject"];
+    CONST INBOUND_EMAIL = 0 ;
+    CONST OUTBOUND_EMAIL = 1 ;
+    CONST NOT_READ_ACTION = 0 ;
+    CONST READ_ACTION = 1 ;
+
+    protected $fillable = ["username","message","email","subject", "actions"];
 }
